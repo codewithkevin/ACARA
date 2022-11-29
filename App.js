@@ -1,21 +1,13 @@
-import React, { useCallback, useMemo, useRef, useState } from "react";
-import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
-import BottomSheet from "@gorhom/bottom-sheet";
-import { useNavigation } from "@react-navigation/native";
+import RootNavigation from "./Navigation/index";
+import { useState, useEffect } from "react";
+import LoadingScreen from './Screens/LoadinScreen';
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text className="text-red-500">Open up App to start working on your app!</Text>
-    </View>
-  );
-}
+  const [loading, setLoading] = useState(true);
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
+  useEffect(() => {
+    setTimeout(() => setLoading(false), 1000);
+  }, []);
+
+  return <>{loading ? <LoadingScreen /> : <RootNavigation />}</>;
+}
