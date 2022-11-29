@@ -1,6 +1,6 @@
 import { View, Text, Image, SafeAreaView } from "react-native";
-import React from "react";
 import Form from "./../../Components/Auth/SignUp/Form";
+
 
 const SignUpScreen = () => {
   return (
