@@ -30,12 +30,12 @@ const Bottom = (props) => {
           <View className="flex-1 items-center mt-3">
             <TouchableOpacity
               onPress={() => {
-                navigation.goBack();
+                navigation.navigate("signup");
               }}
             >
               <Text className="font-bold text-[#009EFF]">Skip</Text>
             </TouchableOpacity>
-            {props.next != null ? (
+            {props.next != "signup" ? (
               <TouchableOpacity
                 onPress={() => {
                   navigation.navigate(props.next);

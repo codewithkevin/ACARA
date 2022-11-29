@@ -5,7 +5,7 @@ import Bottom from "./../../BottomSheet/Bottom";
 const LastScreen = () => {
   // MainOnboardingScreen;
   const info = {
-    page: null,
+    page: "signup",
     header: "Last Screen",
     details:
       "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Omnis quidem eum sint ipsa blanditiis libero, rem dolore magni earum",
