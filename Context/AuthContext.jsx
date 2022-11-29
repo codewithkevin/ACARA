@@ -10,7 +10,11 @@ const AuthContextProvider = ({ children }) => {
   console.log("AuthContext state: ", state);
 
   useEffect(() => {
-    
+    const user = AsyncStorage.getItem("user");
+
+    if (user) {
+      dispatch({ type: "LOGIN", payload: user });
+    }
   }, []);
 
   return (
