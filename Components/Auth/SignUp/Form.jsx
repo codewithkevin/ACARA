@@ -23,15 +23,13 @@ const Form = () => {
   };
 
   return (
-    <View className="mt-5 w-full items-center">
+    <View className="mt-1 w-full items-center">
       <Text className="font-bold text-lg">Sign up for free</Text>
-
-      <View className="mt-10 w-[85%]">
+      <View className="mt-5 w-[85%]">
         <View className="mb-7">
           <Text className="ml-5 mb-3 text-gray-400">Name</Text>
           <TextInput
             className="bg-gray-100 border border-gray-400 text-black text-sm rounded-[50px] block w-full p-4 placeholder-black"
-            placeholder="Name"
             placeholderTextColor="#000"
             containerStyle={{ marginTop: 10, backgroundColor: "white" }}
             value={name}
@@ -42,7 +40,6 @@ const Form = () => {
           <Text className="ml-5 mb-3 text-gray-400">Email</Text>
           <TextInput
             className="bg-gray-100 border border-gray-400 text-black text-sm rounded-[50px] block w-full p-4 placeholder-black"
-            placeholder="Email"
             placeholderTextColor="#000"
             containerStyle={{ marginTop: 10, backgroundColor: "white" }}
             value={email}
@@ -54,11 +51,12 @@ const Form = () => {
           <Text className="ml-5 mb-3 text-gray-400">Password</Text>
           <TextInput
             className="bg-gray-100 border border-gray-400 text-black text-sm rounded-[50px] block w-full p-4 placeholder-black"
-            placeholder="Password"
             placeholderTextColor="#000"
             containerStyle={{ marginTop: 10, backgroundColor: "white" }}
             value={password}
             onChangeText={(text) => setPassword(text)}
+            secureTextEntry
+            secureTextEntry={true}
           />
         </View>
 
@@ -104,6 +102,7 @@ const Form = () => {
             <Text className="text-[#075ADE] font-bold">Sign In</Text>
           </TouchableOpacity>
         </View>
+        
       </View>
     </View>
   );
