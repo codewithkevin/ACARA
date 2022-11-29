@@ -5,6 +5,7 @@ import { useNavigation } from "@react-navigation/native";
 import Button from "./../../Buttons/Button";
 import { useState } from "react";
 import { useSignUp } from "./../../../Hooks/useSignUp";
+import AuthPopup from "./../../ModalPopup/Auth/AuthPopup";
 
 const Form = () => {
   const navigation = useNavigation();
@@ -12,14 +13,26 @@ const Form = () => {
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
 
+  //Modal Popup
+  const [modalVisible, setModalVisible] = useState(false);
+  const [validationMessage, setValidationMessage] = useState("");
+
+  const errorImage = "../../../assets/Error/Error.png";
+
   const { signup, isLoading, error, userEmail } = useSignUp();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    await signup(email, password, name);
-    const something = await userEmail;
-    console.log(something);
+    if (!error) {
+      await signup(email, password, name);
+      const something = await userEmail;
+    }
+
+    if (error) {
+      setModalVisible(true);
+      setValidationMessage(error);
+    }
   };
 
   return (
@@ -102,8 +115,14 @@ const Form = () => {
             <Text className="text-[#075ADE] font-bold">Sign In</Text>
           </TouchableOpacity>
         </View>
-        
       </View>
+
+      <AuthPopup
+        setModalVisible={setModalVisible}
+        modalVisible={modalVisible}
+        validationMessage={validationMessage}
+        image={require(errorImage)}
+      />
     </View>
   );
 };

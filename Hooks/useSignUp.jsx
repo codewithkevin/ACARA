@@ -24,7 +24,6 @@ export const useSignUp = () => {
     if (!response.ok) {
       setIsLoading(false);
       setError(json.error);
-      alert("Error: ");
     }
     if (response.ok) {
       // save the user to local storage
