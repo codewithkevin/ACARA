@@ -10,12 +10,16 @@ const AuthContextProvider = ({ children }) => {
   console.log("AuthContext state: ", state);
 
   useEffect(() => {
-    const user = AsyncStorage.getItem("user");
+    retriveUser();
+  }, []);
 
+  const retriveUser = async () => {
+    const value = await AsyncStorage.getItem("user");
+    const user = JSON.parse(value);
     if (user) {
       dispatch({ type: "LOGIN", payload: user });
     }
-  }, []);
+  };
 
   return (
     <AuthContext.Provider value={{ ...state, dispatch }}>

@@ -29,10 +29,10 @@ const Form = () => {
       const something = await userEmail;
     }
 
-    if (error) {
-      setModalVisible(true);
-      setValidationMessage(error);
-    }
+    // if (error) {
+    //   setModalVisible(true);
+    //   setValidationMessage(error);
+    // }
   };
 
   return (
