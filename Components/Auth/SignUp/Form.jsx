@@ -24,15 +24,14 @@ const Form = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!error) {
-      await signup(email, password, name);
-      const something = await userEmail;
+    const notifyError = await error;
+    if (notifyError) {
+      setModalVisible(true);
+      setValidationMessage(error);
     }
 
-    // if (error) {
-    //   setModalVisible(true);
-    //   setValidationMessage(error);
-    // }
+    await signup(email, password, name);
+    const something = await userEmail;
   };
 
   return (

@@ -19,12 +19,11 @@ export const useSignUp = () => {
     });
 
     const json = await response.json();
-    console.log(json);
+    
 
     if (!response.ok) {
       setIsLoading(false);
       setError(json.error);
-      alert("Error: ");
     }
     if (response.ok) {
       // save the user to local storage
@@ -32,8 +31,6 @@ export const useSignUp = () => {
 
       // update the auth context
       dispatch({ type: "LOGIN", payload: json });
-
-      console.log(json);
 
       // update loading state
       setIsLoading(false);
