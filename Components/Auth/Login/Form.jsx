@@ -63,7 +63,7 @@ const Form = () => {
         </View>
 
         <View className="mb-7">
-          <Button function={handleSubmit} text={"Sign Up"} />
+          <Button function={handleSubmit} text={"Log In"} />
         </View>
 
         <View className="items-center">
