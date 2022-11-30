@@ -1,6 +1,6 @@
 import MyStack from "./MyStack";
-import { useAuthContext } from "./../Hooks/useAuthContext";
 import AuthStack from "./Auth/AuthStack";
+import { useAuthContext } from './../Hooks/Auth/useAuthContext';
 
 export default function RootNavigation() {
   const { user } = useAuthContext();

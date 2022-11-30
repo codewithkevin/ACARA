@@ -1,24 +1,25 @@
 import { useState } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { useAuthContext } from "./useAuthContext";
+import { useAuthContext } from './../useAuthContext';
 
-export const useLogin = () => {
+export const useSignUp = () => {
   const [error, setError] = useState(null);
   const [userEmail, setUserEmail] = useState();
   const [isLoading, setIsLoading] = useState(null);
   const { dispatch } = useAuthContext();
 
-  const login = async (email, password) => {
+  const signup = async (email, password, name) => {
     setIsLoading(true);
     setError(null);
 
-    const response = await fetch("http://172.20.10.2:8000/api/user/login", {
+    const response = await fetch("http://172.20.10.2:8000/api/user/signup", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email, password}),
+      body: JSON.stringify({ email, password, name }),
     });
 
     const json = await response.json();
+    
 
     if (!response.ok) {
       setIsLoading(false);
@@ -39,5 +40,5 @@ export const useLogin = () => {
     }
   };
 
-  return { login, isLoading, error, userEmail };
+  return { signup, isLoading, error, userEmail };
 };

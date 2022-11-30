@@ -5,7 +5,7 @@ import { useNavigation } from "@react-navigation/native";
 import Button from "./../../Buttons/Button";
 import { useState } from "react";
 import AuthPopup from "./../../ModalPopup/Auth/AuthPopup";
-import { useLogin } from "./../../../Hooks/useLogin";
+import { useLogin } from './../../../Hooks/Auth/Login/useLogin';
 
 const Form = () => {
   const navigation = useNavigation();

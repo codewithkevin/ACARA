@@ -4,8 +4,8 @@ import { Fontisto } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 import Button from "./../../Buttons/Button";
 import { useState } from "react";
-import { useSignUp } from "./../../../Hooks/useSignUp";
 import AuthPopup from "./../../ModalPopup/Auth/AuthPopup";
+import { useSignUp } from './../../../Hooks/Auth/SignUp/useSignUp';
 
 const Form = () => {
   const navigation = useNavigation();
