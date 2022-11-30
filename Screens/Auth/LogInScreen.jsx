@@ -1,12 +1,16 @@
-import { View, Text } from 'react-native'
-import React from 'react'
+import { View, Text, Image, SafeAreaView } from "react-native";
+import Form from './../../Components/Auth/Login/Form';
 
 const LogInScreen = () => {
   return (
-    <View className="justify-center items-center flex-1">
-      <Text>LogInScreen</Text>
-    </View>
-  )
-}
+    <SafeAreaView className="flex-1 items-center w-full">
+      <Image
+        className="w-[130] h-[130]"
+        source={require("../../assets/Loading/1.png")}
+      />
+      <Form />
+    </SafeAreaView>
+  );
+};
 
-export default LogInScreen
+export default LogInScreen;
