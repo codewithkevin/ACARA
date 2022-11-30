@@ -1,4 +1,4 @@
-import { View, Text, TextInput, TouchableOpacity } from "react-native";
+import { View, Text, TextInput, TouchableOpacity, Image } from "react-native";
 import React from "react";
 import { Fontisto } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
@@ -81,25 +81,23 @@ const Form = () => {
         </View>
 
         <View className="flex justify-around flex-row mt-5 mb-7">
-          <TouchableOpacity className=" bg-white p-5 h-15 rounded-2xl w-[150]">
-            <View className="flex">
-              <Fontisto
-                name={"google"}
-                color={"blue"}
-                size={24}
-                // onPress={toggleIsLoading}
+          <TouchableOpacity className=" bg-white p-5 h-[70px] rounded-2xl w-[150]">
+            <View className="flex-1 flex-row justify-between items-center p-0">
+              <Image
+                className="w-[40] h-[40]"
+                source={require("../../Auth/../../assets/Auth/facebook.png")}
               />
+              <Text className="text-[16px]">Facebook</Text>
             </View>
           </TouchableOpacity>
 
-          <TouchableOpacity className=" bg-gray-300 p-5 rounded-2xl w-[150]">
-            <View className="flex">
-              <Fontisto
-                name={"google"}
-                color={"blue"}
-                size={24}
-                // onPress={toggleIsLoading}
+          <TouchableOpacity className=" bg-white p-5 h-[70px] rounded-2xl w-[150]">
+            <View className="flex-1 flex-row justify-around items-center p-0">
+              <Image
+                className="w-[40] h-[40]"
+                source={require("../../Auth/../../assets/Auth/google.png")}
               />
+              <Text className="text-[16px]">Google</Text>
             </View>
           </TouchableOpacity>
         </View>
