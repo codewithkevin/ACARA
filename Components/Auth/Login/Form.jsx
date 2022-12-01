@@ -5,7 +5,8 @@ import { useNavigation } from "@react-navigation/native";
 import Button from "./../../Buttons/Button";
 import { useState } from "react";
 import AuthPopup from "./../../ModalPopup/Auth/AuthPopup";
-import { useLogin } from './../../../Hooks/Auth/Login/useLogin';
+import { useLogin } from "./../../../Hooks/Auth/Login/useLogin";
+import { useError } from "./../../../Hooks/Auth/Login/useError";
 
 const Form = () => {
   const navigation = useNavigation();
@@ -20,16 +21,13 @@ const Form = () => {
   const errorImage = "../../../assets/Error/Error.png";
 
   const { login, isLoading, error, userEmail } = useLogin();
+  const { errorCheck } = useError();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const notifyError = await error;
-    if (notifyError) {
-      setModalVisible(true);
-      setValidationMessage(error);
-    }
-
+    errorCheck(error, setModalVisible, setValidationMessage);
+    
     await login(email, password);
     const something = await userEmail;
   };
