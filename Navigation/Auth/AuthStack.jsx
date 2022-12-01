@@ -4,15 +4,16 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 //Screens Import
 import OnboardingScreen from "./Onboarding";
-import SignUpScreen from './../../Screens/Auth/SignUpScreen';
-import LogInScreen from './../../Screens/Auth/LogInScreen';
+import SignUpScreen from "./../../Screens/Auth/SignUp/SignUpScreen";
+import LogInScreen from "./../../Screens/Auth/Login/LogInScreen";
+import InterestScreen from "./../../Screens/Auth/Interest/InterestScreen";
 
 const Stack = createNativeStackNavigator();
 
 export default function AuthStack() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="OnboardingScreens">
+      <Stack.Navigator initialRouteName="interest">
         <Stack.Screen
           options={{ headerShown: false }}
           name="OnboardingScreens"
@@ -27,6 +28,11 @@ export default function AuthStack() {
           options={{ headerShown: false }}
           name="signin"
           component={LogInScreen}
+        />
+        <Stack.Screen
+          options={{ headerShown: false }}
+          name="interest"
+          component={InterestScreen}
         />
       </Stack.Navigator>
     </NavigationContainer>
