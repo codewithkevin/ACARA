@@ -2,7 +2,7 @@ import { View, Text, TouchableOpacity, Image } from "react-native";
 import { interestFunction } from "./../../../Functions/Auth/InterestFunction";
 
 const InterestItems = () => {
-  const { musicfun, artfun, interest } = interestFunction();
+  const { musicfun, artfun, interest, art, music } = interestFunction();
 
   console.log(interest);
 
@@ -21,27 +21,39 @@ const InterestItems = () => {
       <View className="flex-1 flex-row justify-around">
         <TouchableOpacity
           onPress={artfun}
-          className=" bg-white p-5 h-[150px] rounded-2xl w-[150] border-solid"
+          className={`${
+            art ? "bg-white" : "bg-[#075ADE]"
+          } p-5 h-[150px] rounded-2xl w-[150] border-solid`}
         >
           <View className="flex-1 justify-center items-center p-0">
             <Image
               className="w-[80] h-[80]"
               source={require("../../../assets/Auth/Interest/lightart.png")}
             />
-            <Text className="text-[16px]">Art</Text>
+            <Text
+              className={`text-[16px] ${art ? "text-black" : "text-white"}`}
+            >
+              Art
+            </Text>
           </View>
         </TouchableOpacity>
 
         <TouchableOpacity
           onPress={musicfun}
-          className=" bg-white p-5 h-[150px] rounded-2xl w-[150] border-solid"
+          className={`${
+            music ? "bg-white" : "bg-[#075ADE]"
+          } p-5 h-[150px] rounded-2xl w-[150] border-solid`}
         >
           <View className="flex-1 justify-center items-center p-0">
             <Image
               className="w-[80] h-[80]"
               source={require("../../../assets/Auth/Interest/Music.png")}
             />
-            <Text className="text-[16px]">Music</Text>
+            <Text
+              className={`text-[16px] ${music ? "text-black" : "text-white"}`}
+            >
+              Music
+            </Text>
           </View>
         </TouchableOpacity>
       </View>

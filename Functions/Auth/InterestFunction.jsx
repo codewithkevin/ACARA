@@ -35,5 +35,5 @@ export const interestFunction = () => {
     }
   };
 
-  return { musicfun, artfun, interest };
+  return { musicfun, artfun, interest, art, music };
 };
