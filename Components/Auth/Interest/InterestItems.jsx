@@ -1,13 +1,11 @@
-import {
-  View,
-  Text,
-  SafeAreaView,
-  TouchableOpacity,
-  Image,
-} from "react-native";
-import React from "react";
+import { View, Text, TouchableOpacity, Image } from "react-native";
+import { interestFunction } from "./../../../Functions/Auth/InterestFunction";
 
 const InterestItems = () => {
+  const { musicfun, artfun, interest } = interestFunction();
+
+  console.log(interest);
+
   return (
     <View className="p-5 mt-10">
       <TouchableOpacity className="h-[70px] w-full">
@@ -21,8 +19,10 @@ const InterestItems = () => {
       </TouchableOpacity>
 
       <View className="flex-1 flex-row justify-around">
-        
-        <TouchableOpacity className=" bg-white p-5 h-[150px] rounded-2xl w-[150] border-solid">
+        <TouchableOpacity
+          onPress={artfun}
+          className=" bg-white p-5 h-[150px] rounded-2xl w-[150] border-solid"
+        >
           <View className="flex-1 justify-center items-center p-0">
             <Image
               className="w-[80] h-[80]"
@@ -32,7 +32,10 @@ const InterestItems = () => {
           </View>
         </TouchableOpacity>
 
-        <TouchableOpacity className=" bg-white p-5 h-[150px] rounded-2xl w-[150] border-solid">
+        <TouchableOpacity
+          onPress={musicfun}
+          className=" bg-white p-5 h-[150px] rounded-2xl w-[150] border-solid"
+        >
           <View className="flex-1 justify-center items-center p-0">
             <Image
               className="w-[80] h-[80]"
@@ -41,8 +44,6 @@ const InterestItems = () => {
             <Text className="text-[16px]">Music</Text>
           </View>
         </TouchableOpacity>
-        
-
       </View>
     </View>
   );
