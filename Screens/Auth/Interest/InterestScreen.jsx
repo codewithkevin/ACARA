@@ -1,12 +1,17 @@
-import { View, Text } from "react-native";
+import {
+  SafeAreaView,
+  View,
+  FlatList,
+  StyleSheet,
+  Text,
+  StatusBar,
+  TouchableOpacity,
+} from "react-native";
 import React from "react";
+import InterestItems from "./../../../Components/Auth/Interest/InterestItems";
 
 const InterestScreen = () => {
-  return (
-    <View>
-      <Text>InterestScreen</Text>
-    </View>
-  );
+  return <InterestItems />;
 };
 
 export default InterestScreen;
