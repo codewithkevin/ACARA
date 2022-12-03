@@ -8,22 +8,13 @@ import SignUpScreen from "./../../Screens/Auth/SignUp/SignUpScreen";
 import LogInScreen from "./../../Screens/Auth/Login/LogInScreen";
 import InterestScreen from "./../../Screens/Auth/Interest/InterestScreen";
 import { AsyncStorage } from "@react-native-async-storage/async-storage";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
+import { CheckFirstLanch } from "./../../Functions/App/CheckFirstLanuch";
 
 const Stack = createNativeStackNavigator();
 
 export default function AuthStack() {
-  const [isAppFirstLaunched, setIsAppFirstLaunched] = useState();
-
-  const check = async () => {
-    const appData = await AsyncStorage.getItem("isAppFirstLaunched");
-    if (appData == null) {
-      setIsAppFirstLaunched(true);
-      AsyncStorage.setItem("isAppFirstLaunched", "false");
-    } else {
-      setIsAppFirstLaunched(false);
-    }
-  };
+  const { check, isAppFirstLaunched } = CheckFirstLanch();
 
   useEffect(() => {
     check();
