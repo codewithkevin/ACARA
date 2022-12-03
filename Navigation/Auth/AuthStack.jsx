@@ -7,13 +7,35 @@ import OnboardingScreen from "./Onboarding";
 import SignUpScreen from "./../../Screens/Auth/SignUp/SignUpScreen";
 import LogInScreen from "./../../Screens/Auth/Login/LogInScreen";
 import InterestScreen from "./../../Screens/Auth/Interest/InterestScreen";
+import { AsyncStorage } from "@react-native-async-storage/async-storage";
+import { useState, useEffect } from "react";
 
 const Stack = createNativeStackNavigator();
 
 export default function AuthStack() {
+  const [isAppFirstLaunched, setIsAppFirstLaunched] = useState();
+
+  const check = async () => {
+    const appData = await AsyncStorage.getItem("isAppFirstLaunched");
+    if (appData == null) {
+      setIsAppFirstLaunched(true);
+      AsyncStorage.setItem("isAppFirstLaunched", "false");
+    } else {
+      setIsAppFirstLaunched(false);
+    }
+  };
+
+  useEffect(() => {
+    check();
+  }, []);
+
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="OnboardingScreens">
+      <Stack.Navigator
+        initialRouteName={`${
+          isAppFirstLaunched ? "OnboardingScreens" : "signup"
+        }`}
+      >
         <Stack.Screen
           options={{ headerShown: false }}
           name="OnboardingScreens"
