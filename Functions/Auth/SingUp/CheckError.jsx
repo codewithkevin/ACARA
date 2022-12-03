@@ -1,6 +1,8 @@
 import { useState } from "react";
+import { useNavigation } from "@react-navigation/native";
 
 export const checkError = () => {
+  const navigation = useNavigation();
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(null);
 
@@ -24,7 +26,7 @@ export const checkError = () => {
     if (response.ok) {
       // update loading state
       setIsLoading(false);
-      console.log("Successfully");
+      navigation.navigate("interest");
     }
   };
 
