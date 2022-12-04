@@ -25,7 +25,7 @@ export default function AuthStack() {
       {isloading == false ? null : (
         <Stack.Navigator
           initialRouteName={`${
-            isAppFirstLaunched ? "OnboardingScreens" : "interest"
+            isAppFirstLaunched ? "OnboardingScreens" : "signup"
           }`}
         >
           <Stack.Screen
