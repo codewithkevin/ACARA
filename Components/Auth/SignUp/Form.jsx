@@ -11,7 +11,6 @@ const Form = () => {
   const navigation = useNavigation();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [name, setName] = useState("");
 
   //Modal Popup
   const [modalVisible, setModalVisible] = useState(false);
@@ -23,7 +22,7 @@ const Form = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await errorFunction(email, password, name);
+    await errorFunction(email, password);
 
     if (error) {
       setModalVisible(true);
@@ -34,9 +33,9 @@ const Form = () => {
 
   return (
     <View className="mt-1 w-full items-center">
-      <Text className="font-bold text-lg">Sign up for free</Text>
-      <View className="mt-5 w-[85%]">
-        <View className="mb-7">
+      <Text className="font-md text-xl mt-14">Sign up for free</Text>
+      <View className="w-[85%] mt-[60]">
+        {/* <View className="mb-7">
           <Text className="ml-5 mb-2 text-gray-400">Name</Text>
           <TextInput
             className="bg-gray-100 border border-gray-400 text-black text-sm rounded-[50px] block w-full p-4 placeholder-black"
@@ -45,11 +44,11 @@ const Form = () => {
             value={name}
             onChangeText={(text) => setName(text)}
           />
-        </View>
+        </View> */}
         <View className="mb-7">
           <Text className="ml-5 mb-2 text-gray-400">Email</Text>
           <TextInput
-            className="bg-gray-100 border border-gray-400 text-black text-sm rounded-[50px] block w-full p-4 placeholder-black"
+            className="bg-gray-100 border border-[#075ADE] text-black text-sm rounded-[50px] block w-full p-4 placeholder-black"
             placeholderTextColor="#000"
             containerStyle={{ marginTop: 10, backgroundColor: "white" }}
             value={email}
@@ -60,7 +59,7 @@ const Form = () => {
         <View className="mb-7">
           <Text className="ml-5 mb-2 text-gray-400">Password</Text>
           <TextInput
-            className="bg-gray-100 border border-gray-400 text-black text-sm rounded-[50px] block w-full p-4 placeholder-black"
+            className="bg-gray-100 border border-[#075ADE] text-black text-sm rounded-[50px] block w-full p-4 placeholder-black"
             placeholderTextColor="#000"
             containerStyle={{ marginTop: 10, backgroundColor: "white" }}
             value={password}
