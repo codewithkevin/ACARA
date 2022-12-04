@@ -37,7 +37,7 @@ const Form = () => {
       <Text className="font-bold text-lg">Sign up for free</Text>
       <View className="mt-5 w-[85%]">
         <View className="mb-7">
-          <Text className="ml-5 mb-3 text-gray-400">Name</Text>
+          <Text className="ml-5 mb-2 text-gray-400">Name</Text>
           <TextInput
             className="bg-gray-100 border border-gray-400 text-black text-sm rounded-[50px] block w-full p-4 placeholder-black"
             placeholderTextColor="#000"
@@ -47,7 +47,7 @@ const Form = () => {
           />
         </View>
         <View className="mb-7">
-          <Text className="ml-5 mb-3 text-gray-400">Email</Text>
+          <Text className="ml-5 mb-2 text-gray-400">Email</Text>
           <TextInput
             className="bg-gray-100 border border-gray-400 text-black text-sm rounded-[50px] block w-full p-4 placeholder-black"
             placeholderTextColor="#000"
@@ -58,7 +58,7 @@ const Form = () => {
         </View>
 
         <View className="mb-7">
-          <Text className="ml-5 mb-3 text-gray-400">Password</Text>
+          <Text className="ml-5 mb-2 text-gray-400">Password</Text>
           <TextInput
             className="bg-gray-100 border border-gray-400 text-black text-sm rounded-[50px] block w-full p-4 placeholder-black"
             placeholderTextColor="#000"

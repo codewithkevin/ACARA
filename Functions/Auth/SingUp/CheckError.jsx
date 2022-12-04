@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigation } from "@react-navigation/native";
 
 export const checkError = () => {
@@ -8,7 +8,7 @@ export const checkError = () => {
 
   const errorFunction = async (email, password, name) => {
     setIsLoading(true);
-    // setError(null);
+    setError(null);
 
     const response = await fetch("http://172.20.10.2:8000/api/user/check", {
       method: "POST",
@@ -28,7 +28,12 @@ export const checkError = () => {
       setIsLoading(false);
       navigation.navigate("interest");
     }
+
   };
+
+  useEffect(() => {
+    errorFunction();
+  }, []);
 
   return { errorFunction, isLoading, error, setError };
 };
