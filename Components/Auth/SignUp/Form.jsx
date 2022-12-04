@@ -19,18 +19,17 @@ const Form = () => {
 
   const errorImage = "../../../assets/Error/Error.png";
 
-  const { errorFunction, error, isLoading } = checkError();
-  
+  const { errorFunction, error, isLoading, setError } = checkError();
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    await errorFunction(email, password, name);
 
-    const notifyError = await error;
-    if (notifyError) {
+    if (error) {
       setModalVisible(true);
       setValidationMessage(error);
+      setError(null);
     }
-
-    await errorFunction(email, password, name);
   };
 
   return (

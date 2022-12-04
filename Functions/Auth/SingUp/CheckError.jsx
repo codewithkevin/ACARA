@@ -8,7 +8,7 @@ export const checkError = () => {
 
   const errorFunction = async (email, password, name) => {
     setIsLoading(true);
-    setError(null);
+    // setError(null);
 
     const response = await fetch("http://172.20.10.2:8000/api/user/check", {
       method: "POST",
@@ -30,5 +30,5 @@ export const checkError = () => {
     }
   };
 
-  return { errorFunction, isLoading, error };
+  return { errorFunction, isLoading, error, setError };
 };

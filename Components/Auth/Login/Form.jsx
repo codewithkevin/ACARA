@@ -27,14 +27,14 @@ const Form = () => {
     e.preventDefault();
 
     errorCheck(error, setModalVisible, setValidationMessage);
-    
+
     await login(email, password);
     const something = await userEmail;
   };
 
   return (
     <View className="mt-1 w-full items-center">
-      <Text className="font-bold text-lg">Sign up for free</Text>
+      <Text className="font-md text-xl">Sign in to your account</Text>
       <View className="mt-5 w-[85%]">
         <View className="mb-7">
           <Text className="ml-5 mb-3 text-gray-400">Email</Text>
