@@ -9,6 +9,70 @@ export const interestFunction = () => {
   const [food, setFood] = useState(true);
   const [sport, setSport] = useState(true);
   const [movie, setMovie] = useState(true);
+  const [finance, setFinance] = useState(true);
+  const [trip, setTrip] = useState(true);
+  const [education, setEducation] = useState(true);
+  const [exibihition, setExibihition] = useState(true);
+
+  const financefun = (event) => {
+    event.preventDefault();
+    if (finance == true) {
+      setFinance((current) => !current);
+      setInterest((current) => [...current, "finance"]);
+    } else {
+      setFinance((current) => !current);
+      setInterest((current) =>
+        current.filter((element) => {
+          return element !== "finance";
+        })
+      );
+    }
+  };
+
+  const tripfun = (event) => {
+    event.preventDefault();
+    if (trip == true) {
+      setTrip((current) => !current);
+      setInterest((current) => [...current, "trip"]);
+    } else {
+      setTrip((current) => !current);
+      setInterest((current) =>
+        current.filter((element) => {
+          return element !== "trip";
+        })
+      );
+    }
+  };
+
+  const educationfun = (event) => {
+    event.preventDefault();
+    if (education == true) {
+      setEducation((current) => !current);
+      setInterest((current) => [...current, "education"]);
+    } else {
+      setEducation((current) => !current);
+      setInterest((current) =>
+        current.filter((element) => {
+          return element !== "education";
+        })
+      );
+    }
+  };
+
+  const exibihitionfun = (event) => {
+    event.preventDefault();
+    if (exibihition == true) {
+      setExibihition((current) => !current);
+      setInterest((current) => [...current, "exhibition"]);
+    } else {
+      setExibihition((current) => !current);
+      setInterest((current) =>
+        current.filter((element) => {
+          return element !== "exhibition";
+        })
+      );
+    }
+  };
 
   const musicfun = (event) => {
     event.preventDefault();
@@ -116,10 +180,19 @@ export const interestFunction = () => {
   };
 
   return {
+    financefun,
+    finance,
+    tripfun,
+    trip,
+    educationfun,
+    education,
+    exibihitionfun,
+    exibihition,
     foodfun,
     partyfun,
     techfun,
     musicfun,
+    movie,
     artfun,
     moviefun,
     sportfun,
