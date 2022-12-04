@@ -14,7 +14,7 @@ import { CheckFirstLanch } from "./../../Functions/App/CheckFirstLanuch";
 const Stack = createNativeStackNavigator();
 
 export default function AuthStack() {
-  const { check, isAppFirstLaunched } = CheckFirstLanch();
+  const { check, isAppFirstLaunched, isloading } = CheckFirstLanch();
 
   useEffect(() => {
     check();
@@ -22,32 +22,34 @@ export default function AuthStack() {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator
-        initialRouteName={`${
-          isAppFirstLaunched ? "OnboardingScreens" : "signup"
-        }`}
-      >
-        <Stack.Screen
-          options={{ headerShown: false }}
-          name="OnboardingScreens"
-          component={OnboardingScreen}
-        />
-        <Stack.Screen
-          options={{ headerShown: false, gestureEnabled: false }}
-          name="signup"
-          component={SignUpScreen}
-        />
-        <Stack.Screen
-          options={{ headerShown: false }}
-          name="signin"
-          component={LogInScreen}
-        />
-        <Stack.Screen
-          options={{ headerShown: false }}
-          name="interest"
-          component={InterestScreen}
-        />
-      </Stack.Navigator>
+      {isloading == false ? null : (
+        <Stack.Navigator
+          initialRouteName={`${
+            isAppFirstLaunched ? "OnboardingScreens" : "signup"
+          }`}
+        >
+          <Stack.Screen
+            options={{ headerShown: false }}
+            name="OnboardingScreens"
+            component={OnboardingScreen}
+          />
+          <Stack.Screen
+            options={{ headerShown: false, gestureEnabled: false }}
+            name="signup"
+            component={SignUpScreen}
+          />
+          <Stack.Screen
+            options={{ headerShown: false }}
+            name="signin"
+            component={LogInScreen}
+          />
+          <Stack.Screen
+            options={{ headerShown: false }}
+            name="interest"
+            component={InterestScreen}
+          />
+        </Stack.Navigator>
+      )}
     </NavigationContainer>
   );
 }
