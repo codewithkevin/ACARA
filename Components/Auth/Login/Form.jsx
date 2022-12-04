@@ -34,8 +34,8 @@ const Form = () => {
 
   return (
     <View className="mt-1 w-full items-center">
-      <Text className="font-md text-xl">Sign in to your account</Text>
-      <View className="mt-5 w-[85%]">
+      <Text className="font-md text-xl mt-14">Sign in to your account</Text>
+      <View className="w-[85%] mt-[30]">
         <View className="mb-7">
           <Text className="ml-5 mb-3 text-gray-400">Email</Text>
           <TextInput

@@ -27,7 +27,11 @@ const Form = () => {
     if (error) {
       setModalVisible(true);
       setValidationMessage(error);
-      setError(null);
+      setError("");
+    }
+    if (!error) {
+      setModalVisible(false);
+      setValidationMessage(error);
     }
   };
 
@@ -35,16 +39,6 @@ const Form = () => {
     <View className="mt-1 w-full items-center">
       <Text className="font-md text-xl mt-14">Sign up for free</Text>
       <View className="w-[85%] mt-[60]">
-        {/* <View className="mb-7">
-          <Text className="ml-5 mb-2 text-gray-400">Name</Text>
-          <TextInput
-            className="bg-gray-100 border border-gray-400 text-black text-sm rounded-[50px] block w-full p-4 placeholder-black"
-            placeholderTextColor="#000"
-            containerStyle={{ marginTop: 10, backgroundColor: "white" }}
-            value={name}
-            onChangeText={(text) => setName(text)}
-          />
-        </View> */}
         <View className="mb-7">
           <Text className="ml-5 mb-2 text-gray-400">Email</Text>
           <TextInput
