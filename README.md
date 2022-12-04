@@ -1,5 +1,5 @@
 
-# ACARA 
+# ACARA (STATUS: IN PROGRESS)
 
 Acara is a Premium and High-Quality Premium Event Booking, Ticketing, & Organizing Mobile App.
 It connect users, who want to attend a particualr event and allow users to host their own event as well.
