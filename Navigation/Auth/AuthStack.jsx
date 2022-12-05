@@ -1,14 +1,17 @@
 import { SafeAreaView, View } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { AsyncStorage } from "@react-native-async-storage/async-storage";
+import { useEffect } from "react";
 
 //Screens Import
 import OnboardingScreen from "./Onboarding";
 import SignUpScreen from "./../../Screens/Auth/SignUp/SignUpScreen";
 import LogInScreen from "./../../Screens/Auth/Login/LogInScreen";
 import InterestScreen from "./../../Screens/Auth/Interest/InterestScreen";
-import { AsyncStorage } from "@react-native-async-storage/async-storage";
-import { useEffect } from "react";
+import ProfileScreen from "./../../Screens/Auth/Profile/ProfileScreen";
+
+//Function Import
 import { CheckFirstLanch } from "./../../Functions/App/CheckFirstLanuch";
 
 const Stack = createNativeStackNavigator();
@@ -32,6 +35,11 @@ export default function AuthStack() {
             options={{ headerShown: false }}
             name="OnboardingScreens"
             component={OnboardingScreen}
+          />
+          <Stack.Screen
+            options={{ headerShown: false }}
+            name="profile"
+            component={ProfileScreen}
           />
           <Stack.Screen
             options={{ headerShown: false, gestureEnabled: false }}
