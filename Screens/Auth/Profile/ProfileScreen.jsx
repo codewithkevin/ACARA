@@ -1,10 +1,10 @@
-import { View, Text } from "react-native";
-import React from "react";
+import { View, Text, SafeAreaView } from "react-native";
+import Title from "./../../../Components/Title/Title";
 
 const ProfileScreen = () => {
   return (
-    <View className="flex-1 justify-center items-center">
-      <Text>ProfileScreen</Text>
+    <View className="p-5 mt-5 mb-[20px] h-full">
+      <Title header={"Complete your profile"} />
     </View>
   );
 };
