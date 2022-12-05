@@ -2,6 +2,9 @@ import { View, Text, TouchableOpacity, Image, ScrollView } from "react-native";
 import { interestFunction } from "./../../../Functions/Auth/Interest/InterestFunction";
 import { useNavigation } from "@react-navigation/native";
 import Button from "./../../Buttons/Button";
+import { CheckError } from "./../../../Functions/Auth/Interest/CheckError";
+import { useState } from "react";
+import AuthPopup from "./../../ModalPopup/Auth/AuthPopup";
 
 const InterestItems = () => {
   const {
@@ -30,8 +33,30 @@ const InterestItems = () => {
     tech,
   } = interestFunction();
 
+  //Modal Popup
+  const [modalVisible, setModalVisible] = useState(false);
+  const [validationMessage, setValidationMessage] = useState("");
+
+  const errorImage = "../../../assets/Error/Error.png";
+
+  const { errorFunction, isLoading, error, setError } = CheckError();
+
   const navigation = useNavigation();
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    await errorFunction(interest);
+
+    if (error) {
+      setModalVisible(true);
+      setValidationMessage(error);
+      setError("");
+    }
+    if (!error) {
+      setModalVisible(false);
+      setValidationMessage(error);
+    }
+  };
   console.log(interest);
 
   return (
@@ -298,8 +323,15 @@ const InterestItems = () => {
         </View>
       </ScrollView>
       <View className="mt-[-190] items-center text-center">
-        <Button text={"Next Page"} />
+        <Button function={handleSubmit} text={"Next Page"} />
       </View>
+
+      <AuthPopup
+        setModalVisible={setModalVisible}
+        modalVisible={modalVisible}
+        validationMessage={validationMessage}
+        image={require(errorImage)}
+      />
     </View>
   );
 };
