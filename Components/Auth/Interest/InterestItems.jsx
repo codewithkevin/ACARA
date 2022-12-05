@@ -50,7 +50,7 @@ const InterestItems = () => {
     if (error) {
       setModalVisible(true);
       setValidationMessage(error);
-      setError("");
+      setError(error);
     }
     if (!error) {
       setModalVisible(false);

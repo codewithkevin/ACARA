@@ -3,7 +3,7 @@ import { useNavigation } from "@react-navigation/native";
 
 export const CheckError = () => {
   const navigation = useNavigation();
-  const [error, setError] = useState("");
+  const [error, setError] = useState(error);
   const [isLoading, setIsLoading] = useState(true);
 
   const errorFunction = async (interest) => {
