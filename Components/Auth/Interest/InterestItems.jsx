@@ -5,6 +5,7 @@ import Button from "./../../Buttons/Button";
 import { CheckError } from "./../../../Functions/Auth/Interest/CheckError";
 import { useState } from "react";
 import AuthPopup from "./../../ModalPopup/Auth/AuthPopup";
+import Title from "./../../Title/Title";
 
 const InterestItems = () => {
   const {
@@ -62,23 +63,10 @@ const InterestItems = () => {
   return (
     <View>
       <ScrollView vertical={false} className="p-5 mt-10 mb-[20px] h-full">
-        <View className="h-[70px] w-full">
-          <View className="flex-1 flex-row space-x-2 items-center p-0">
-            <TouchableOpacity onPress={() => navigation.goBack()}>
-              <Image
-                className="w-[30] h-[30]"
-                source={require("../../../assets/Arrows/backarrow.png")}
-              />
-            </TouchableOpacity>
-            <View className="p-0 mt-2">
-              <Text className="text-[20px] font-bold">
-                Select Your Interest
-              </Text>
-              <Text className="text-gray-500">Select at least 3 interest</Text>
-            </View>
-          </View>
-        </View>
-
+        <Title
+          header={"Select Your Interest"}
+          text={"Select at least 3 interest"}
+        />
         <View className="h-full mb-[90]">
           <View className="flex-row justify-between mb-4">
             <TouchableOpacity
