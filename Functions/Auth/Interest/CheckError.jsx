@@ -29,7 +29,7 @@ export const CheckError = () => {
     if (response.ok) {
       setIsLoading(false);
       setError("");
-      navigation.navigate("signup");
+      navigation.navigate("profile");
     }
   };
 
