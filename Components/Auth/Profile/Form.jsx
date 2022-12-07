@@ -8,6 +8,8 @@ import AuthPopup from "./../../ModalPopup/Auth/AuthPopup";
 import { useLogin } from "./../../../Hooks/Auth/Login/useLogin";
 import { useError } from "./../../../Hooks/Auth/Login/useError";
 
+import { Chip } from "react-native-paper";
+
 const Form = () => {
   const navigation = useNavigation();
   const [username, setUsername] = useState("");
