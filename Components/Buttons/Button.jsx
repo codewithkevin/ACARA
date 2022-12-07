@@ -6,7 +6,7 @@ const Button = (props) => {
     <View className="items-center">
       <TouchableOpacity
         onPress={props.function}
-        className="items-center mt-5 bg-[#009EFF] w-80 p-5 rounded-[45px]"
+        className="items-center mt-5 bg-[#009EFF] w-full p-5 rounded-[45px]"
       >
         <Text className="text-white font-bold text-md">{props.text}</Text>
       </TouchableOpacity>
