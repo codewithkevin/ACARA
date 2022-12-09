@@ -26,7 +26,6 @@ export const checkError = () => {
     if (response.ok) {
       setIsLoading(false);
       setError("");
-      navigation.navigate("interest");
     }
   };
 

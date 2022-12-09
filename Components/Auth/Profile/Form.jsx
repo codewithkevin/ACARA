@@ -5,16 +5,24 @@ import { useNavigation } from "@react-navigation/native";
 import Button from "./../../Buttons/Button";
 import { useState } from "react";
 import AuthPopup from "./../../ModalPopup/Auth/AuthPopup";
-import { useLogin } from "./../../../Hooks/Auth/Login/useLogin";
-import { useError } from "./../../../Hooks/Auth/Login/useError";
-
-import { Chip } from "react-native-paper";
+import DropDown from "./../../DropDown";
+import { useRoute } from "@react-navigation/native";
+import { useSignUp } from "./../../../Hooks/Auth/SignUp/useSignUp";
 
 const Form = () => {
+  //ROutes
+  const route = useRoute();
+
   const navigation = useNavigation();
   const [username, setUsername] = useState("");
-  const [gender, setGender] = useState("");
   const [name, setName] = useState("");
+  const [genderValue, setGenderValue] = useState(null);
+
+  const email = route.params.email;
+  const password = route.params.password;
+  const interest = route.params.interest;
+
+  const { signup, isLoading, error } = useSignUp();
 
   //Modal Popup
   const [modalVisible, setModalVisible] = useState(false);
@@ -22,21 +30,25 @@ const Form = () => {
 
   const errorImage = "../../../assets/Error/Error.png";
 
-  const { login, isLoading, error, userEmail } = useLogin();
-  const { errorCheck } = useError();
-
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    errorCheck(error, setModalVisible, setValidationMessage);
+    if (error) {
+      setModalVisible(true);
+      setValidationMessage(error);
+    }
 
-    await login(email, password);
-    const something = await userEmail;
+    await signup(email, password, name, interest, username, genderValue);
   };
+
+  console.log(interest);
+  console.log(email);
+  console.log(password);
+
   return (
     <View className="mt-1 w-full">
-      <View className="mb-7">
-        <Text className="ml-5 mb-2 text-gray-400">Full Name</Text>
+      <View className="mb-4">
+        <Text className="ml-2 mb-2 text-gray-400">Full Name</Text>
         <TextInput
           className="bg-gray-100 border border-[#075ADE] text-black text-sm rounded-[50px] block w-full p-3"
           placeholderTextColor="#000"
@@ -47,16 +59,19 @@ const Form = () => {
       </View>
 
       <View className="mb-7">
-        <Text className="ml-5 mb-2 text-gray-400">Username</Text>
+        <Text className="ml-2 mb-2 text-gray-400">Username</Text>
         <TextInput
           className="bg-gray-100 border border-[#075ADE] text-black text-sm rounded-[50px] block w-full p-3 "
           placeholderTextColor="#000"
           containerStyle={{ marginTop: 10, backgroundColor: "white" }}
           value={username}
           onChangeText={(text) => setUsername(text)}
-          secureTextEntry
-          secureTextEntry={true}
         />
+      </View>
+
+      <View className="mb-[150]">
+        <Text className="ml-2 mb-2 text-gray-400">Gender</Text>
+        <DropDown genderValue={genderValue} setGenderValue={setGenderValue} />
       </View>
 
       <View className="mb-7">

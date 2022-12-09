@@ -33,7 +33,10 @@ const Form = () => {
       setModalVisible(false);
       setValidationMessage(error);
     }
+    navigation.navigate("interest", { email: email, password: password });
   };
+
+  
 
   return (
     <View className="mt-1 w-full items-center">

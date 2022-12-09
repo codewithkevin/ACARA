@@ -6,8 +6,15 @@ import { CheckError } from "./../../../Functions/Auth/Interest/CheckError";
 import { useState } from "react";
 import AuthPopup from "./../../ModalPopup/Auth/AuthPopup";
 import Title from "./../../Title/Title";
+import { useRoute } from "@react-navigation/native";
 
 const InterestItems = () => {
+  //ROutes
+  const route = useRoute();
+
+  const email = route.params.email;
+  const password = route.params.password;
+
   const {
     movie,
     financefun,
@@ -57,8 +64,13 @@ const InterestItems = () => {
       setModalVisible(false);
       setValidationMessage(error);
     }
+    navigation.navigate("profile", {
+      email: email,
+      password: password,
+      interest: interest,
+    });
   };
-  console.log(interest);
+  
 
   return (
     <View>
