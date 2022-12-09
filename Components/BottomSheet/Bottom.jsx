@@ -18,55 +18,46 @@ const Bottom = (props) => {
 
   return (
     <View className={`flex-1`}>
-      <View className="flex-1 rounded-t-3xl">
-        <BottomSheet
-          style={theme}
-          useRef={bottomSheetRef}
-          index={1}
-          snapPoints={snapPoints}
-        >
-          <View className="flex-1  items-center mt-3">
-            <Text className="text-2xl text-[#009EFF] text-center max-w-[65%] mb-7">
-              {props.title}
-            </Text>
-            <View>
-              <Text className="text-black text-center w-70">
-                {props.details}
-              </Text>
-            </View>
+      <BottomSheet useRef={bottomSheetRef} index={1} snapPoints={snapPoints}>
+        <View className="flex-1  items-center mt-3">
+          <Text className="text-2xl text-[#009EFF] text-center max-w-[65%] mb-7">
+            {props.title}
+          </Text>
+          <View>
+            <Text className="text-black text-center w-70">{props.details}</Text>
           </View>
-          <View className="flex-1 items-center mt-3">
+        </View>
+        <View className="flex-1 items-center mt-3">
+          <TouchableOpacity
+            onPress={() => {
+              navigation.navigate("signup");
+            }}
+          >
+            <Text className="font-bold text-[#009EFF]">Skip</Text>
+          </TouchableOpacity>
+          {props.next != "signup" ? (
             <TouchableOpacity
               onPress={() => {
-                navigation.navigate("signup");
+                navigation.navigate(props.next);
               }}
+              className="items-center font-bold mt-5 bg-[#009EFF] w-80 p-5 rounded-[25px]"
             >
-              <Text className="font-bold text-[#009EFF]">Skip</Text>
+              <Text className="text-white">next</Text>
             </TouchableOpacity>
-            {props.next != "signup" ? (
-              <TouchableOpacity
-                onPress={() => {
-                  navigation.navigate(props.next);
-                }}
-                className="items-center font-bold mt-5 bg-[#009EFF] w-80 p-5 rounded-[25px]"
-              >
-                <Text className="text-white">next</Text>
-              </TouchableOpacity>
-            ) : (
-              <TouchableOpacity
-                onPress={() => {
-                  navigation.navigate(props.next);
-                }}
-                className="items-center mt-5 bg-[#009EFF] w-80 p-5 rounded-[25px]"
-              >
-                <Text className="text-white font-bold text-md">
-                  Create Account
-                </Text>
-              </TouchableOpacity>
-            )}
-          </View>
-        </BottomSheet>
-      </View>
+          ) : (
+            <TouchableOpacity
+              onPress={() => {
+                navigation.navigate(props.next);
+              }}
+              className="items-center mt-5 bg-[#009EFF] w-80 p-5 rounded-[25px]"
+            >
+              <Text className="text-white font-bold text-md">
+                Create Account
+              </Text>
+            </TouchableOpacity>
+          )}
+        </View>
+      </BottomSheet>
     </View>
   );
 };
