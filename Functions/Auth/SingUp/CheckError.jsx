@@ -27,10 +27,14 @@ export const checkError = () => {
     }
     if (response.ok) {
       setIsLoading(false);
-      setMessage("")
+      setMessage("");
       setErrorMessage("");
     }
   };
+
+  useEffect(() => {
+    errorFunction();
+  }, []);
 
   return { errorFunction, isLoading, errorMessage, setErrorMessage, message };
 };
