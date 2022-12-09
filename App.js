@@ -1,8 +1,11 @@
 import RootNavigation from "./Navigation/index";
 import { useState, useEffect } from "react";
-import LoadingScreen from './Screens/LoadinScreen';
+import LoadingScreen from "./Screens/LoadinScreen";
 
-import AuthContextProvider from "./Context/AuthContext"
+import AuthContextProvider from "./Context/AuthContext";
+import ThemeContextProvider from './Context/ThemeContext'
+
+
 export default function App() {
   const [loading, setLoading] = useState(true);
 
@@ -10,5 +13,11 @@ export default function App() {
     setTimeout(() => setLoading(false), 1000);
   }, []);
 
-  return <AuthContextProvider>{loading ? <LoadingScreen /> : <RootNavigation />}</AuthContextProvider>;
+  return (
+    <AuthContextProvider>
+      <ThemeContextProvider>
+        {loading ? <LoadingScreen /> : <RootNavigation />}
+      </ThemeContextProvider>
+    </AuthContextProvider>
+  );
 }

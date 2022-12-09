@@ -3,7 +3,6 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { AsyncStorage } from "@react-native-async-storage/async-storage";
 import { useEffect, useState } from "react";
-import { Theme, DefaultTheme } from "react-native-paper";
 
 //Screens Import
 import OnboardingScreen from "./Onboarding";
@@ -14,25 +13,14 @@ import ProfileScreen from "./../../Screens/Auth/Profile/ProfileScreen";
 
 //Function Import
 import { CheckFirstLanch } from "./../../Functions/App/CheckFirstLanuch";
+import { useThemeContext } from "./../../Hooks/useThemeContext";
 
 const Stack = createNativeStackNavigator();
-
-const darkTheme = {
-  ...DefaultTheme,
-  colors: {
-    ...DefaultTheme.colors,
-    background: "#011928",
-    border: "#575c66",
-    backgroundAlt: "#575c66",
-    borderAlt: "#2E3440",
-    text: "white",
-  },
-};
 
 export default function AuthStack() {
   const { check, isAppFirstLaunched, isloading } = CheckFirstLanch();
 
-  const [theme, setTheme] = useState(darkTheme);
+  const { theme } = useThemeContext();
 
   useEffect(() => {
     check();
@@ -43,7 +31,7 @@ export default function AuthStack() {
       {isloading == false ? null : (
         <Stack.Navigator
           initialRouteName={`${
-            isAppFirstLaunched ? "OnboardingScreens" : "signup"
+            isAppFirstLaunched ? "OnboardingScreens" : "OnboardingScreens"
           }`}
         >
           <Stack.Screen
