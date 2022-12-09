@@ -18,21 +18,26 @@ const Form = () => {
 
   const errorImage = "../../../assets/Error/Error.png";
 
-  const { errorFunction, error, isLoading, setError } = checkError();
+  const { message, errorFunction, isLoading, errorMessage, setErrorMessage } =
+    checkError();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     await errorFunction(email, password);
 
-    if (error) {
+    if (message == "There was an error") {
       setModalVisible(true);
-      setValidationMessage(error);
-      setError("");
+      setValidationMessage(errorMessage);
     }
-    if (!error) {
+    if (message == "") {
       setModalVisible(false);
-      setValidationMessage(error);
-      navigation.navigate("interest", { email: email, password: password });
+      setValidationMessage(errorMessage);
+      errorMessage == null
+        ? null
+        : navigation.navigate("interest", {
+            email: email,
+            password: password,
+          });
     }
   };
 
