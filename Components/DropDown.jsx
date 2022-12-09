@@ -13,7 +13,7 @@ const DropDown = (props) => {
   return (
     <View>
       <DropDownPicker
-        className="bg-gray-100 border border-[#075ADE] text-black text-sm rounded-[50px] block w-full p-3"
+        className="bg-[#263159] border  text-white text-sm rounded-[50px] block w-full p-4 placeholder-white"
         open={genderOpen}
         value={props.genderValue}
         items={gender}

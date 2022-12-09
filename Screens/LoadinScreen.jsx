@@ -4,10 +4,9 @@ const LoadingScreen = () => {
   return (
     <View className="flex-1 items-center justify-center">
       <Image
-        className="w-[200] h-[200]"
+        className="w-[300] h-[300]"
         source={require("../assets/Loading/1.png")}
       />
-      <Text className="text-2xl font-bold mb-2">ACARA</Text>
     </View>
   );
 };

@@ -48,9 +48,9 @@ const Form = () => {
   return (
     <View className="mt-1 w-full">
       <View className="mb-4">
-        <Text className="ml-2 mb-2 text-gray-400">Full Name</Text>
+        <Text className="ml-4 mb-2 text-gray-200">Full Name</Text>
         <TextInput
-          className="bg-gray-100 border border-[#075ADE] text-black text-sm rounded-[50px] block w-full p-3"
+          className="bg-[#263159] border  text-white text-sm rounded-[50px] block w-full p-4 placeholder-white"
           placeholderTextColor="#000"
           containerStyle={{ marginTop: 10, backgroundColor: "white" }}
           value={name}
@@ -59,9 +59,9 @@ const Form = () => {
       </View>
 
       <View className="mb-7">
-        <Text className="ml-2 mb-2 text-gray-400">Username</Text>
+        <Text className="ml-4 mb-2 text-gray-200">Username</Text>
         <TextInput
-          className="bg-gray-100 border border-[#075ADE] text-black text-sm rounded-[50px] block w-full p-3 "
+          className="bg-[#263159] border  text-white text-sm rounded-[50px] block w-full p-4 placeholder-white"
           placeholderTextColor="#000"
           containerStyle={{ marginTop: 10, backgroundColor: "white" }}
           value={username}
