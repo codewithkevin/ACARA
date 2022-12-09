@@ -2,7 +2,8 @@ import { SafeAreaView, View } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { AsyncStorage } from "@react-native-async-storage/async-storage";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { Theme, DefaultTheme } from "react-native-paper";
 
 //Screens Import
 import OnboardingScreen from "./Onboarding";
@@ -16,15 +17,29 @@ import { CheckFirstLanch } from "./../../Functions/App/CheckFirstLanuch";
 
 const Stack = createNativeStackNavigator();
 
+const darkTheme = {
+  ...DefaultTheme,
+  colors: {
+    ...DefaultTheme.colors,
+    background: "#011928",
+    border: "#575c66",
+    backgroundAlt: "#575c66",
+    borderAlt: "#2E3440",
+    text: "white",
+  },
+};
+
 export default function AuthStack() {
   const { check, isAppFirstLaunched, isloading } = CheckFirstLanch();
+
+  const [theme, setTheme] = useState(darkTheme);
 
   useEffect(() => {
     check();
   }, []);
 
   return (
-    <NavigationContainer>
+    <NavigationContainer theme={theme}>
       {isloading == false ? null : (
         <Stack.Navigator
           initialRouteName={`${

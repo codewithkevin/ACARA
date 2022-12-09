@@ -1,7 +1,10 @@
 import { View, Text, TouchableOpacity, Image } from "react-native";
-import React from 'react'
+import { useNavigation } from "@react-navigation/native";
+import React from "react";
 
 const Title = (props) => {
+  const navigation = useNavigation();
+
   return (
     <View className="h-[70px] w-full">
       <View className="flex-1 flex-row space-x-2 items-center p-0">
@@ -12,12 +15,14 @@ const Title = (props) => {
           />
         </TouchableOpacity>
         <View className="p-0 mt-2">
-          <Text className="text-[20px] font-bold">{props.header}</Text>
-          <Text className="text-gray-500">{props.text}</Text>
+          <Text className="text-[20px] font-bold text-white">
+            {props.header}
+          </Text>
+          <Text className="text-gray-200">{props.text}</Text>
         </View>
       </View>
     </View>
   );
-}
+};
 
-export default Title
+export default Title;
