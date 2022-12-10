@@ -7,7 +7,7 @@ const darkTheme = {
   ...DefaultTheme,
   colors: {
     ...DefaultTheme.colors,
-    background: "#011928",
+    background: "#131629",
     border: "#575c66",
     backgroundAlt: "#575c66",
     borderAlt: "#2E3440",

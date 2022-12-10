@@ -34,7 +34,7 @@ const Form = () => {
       setValidationMessage(errorMessage);
       errorMessage == null
         ? null
-        : navigation.navigate("interest", {
+        : navigation.navigate("confirmemail", {
             email: email,
             password: password,
           });

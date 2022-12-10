@@ -10,6 +10,7 @@ import SignUpScreen from "./../../Screens/Auth/SignUp/SignUpScreen";
 import LogInScreen from "./../../Screens/Auth/Login/LogInScreen";
 import InterestScreen from "./../../Screens/Auth/Interest/InterestScreen";
 import ProfileScreen from "./../../Screens/Auth/Profile/ProfileScreen";
+import ConfirmEmail from "./../../Screens/Auth/ConfirmEmail";
 
 //Function Import
 import { CheckFirstLanch } from "./../../Functions/App/CheckFirstLanuch";
@@ -48,6 +49,11 @@ export default function AuthStack() {
             options={{ headerShown: false, gestureEnabled: false }}
             name="signup"
             component={SignUpScreen}
+          />
+          <Stack.Screen
+            options={{ headerShown: false }}
+            name="confirmemail"
+            component={ConfirmEmail}
           />
           <Stack.Screen
             options={{ headerShown: false }}
