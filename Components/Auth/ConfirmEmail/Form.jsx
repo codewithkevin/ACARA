@@ -1,13 +1,15 @@
 import React, { useState } from "react";
 import { View, Text, TouchableWithoutFeedback, TextInput } from "react-native";
 
-const Form = () => {
+const Form = (props) => {
   const [input1, setInput1] = useState("");
   const [input2, setInput2] = useState("");
   const [input3, setInput3] = useState("");
   const [input4, setInput4] = useState("");
 
- 
+  props.setConfirm(`${input1}${input2}${input3}${input4}`);
+  console.log(props.confirm);
+
   return (
     <View className="flex flex-row justify-between">
       <TextInput

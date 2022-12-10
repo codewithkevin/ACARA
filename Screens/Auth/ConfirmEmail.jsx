@@ -10,8 +10,17 @@ import Title from "./../../Components/Title/Title";
 import { useRoute } from "@react-navigation/native";
 import Form from "./../../Components/Auth/ConfirmEmail/Form";
 import Button from "./../../Components/Buttons/Button";
+import { SendCode } from "./../../Functions/Auth/ConfirmEmail/SendCode";
+import { useEffect, useState } from "react";
+import { ConfirmCode } from "./../../Functions/Auth/ConfirmEmail/ConfirmCode";
 
 const ConfirmEmail = () => {
+  const { sendMail } = SendCode();
+  const { confirmCode } = ConfirmCode();
+
+  //States
+  const [confirm, setConfirm] = useState();
+
   //ROutes
   const route = useRoute();
 
@@ -22,6 +31,16 @@ const ConfirmEmail = () => {
     Keyboard.dismiss();
   };
 
+  const handleConfirm = () => {
+    confirmCode(confirm);
+  };
+
+  useEffect(() => {
+    sendMail(email);
+  }, []);
+
+  console.log(confirm);
+
   return (
     <TouchableWithoutFeedback onPress={dismissKeyboard}>
       <SafeAreaView className="flex-1 items-center ml-3">
@@ -30,12 +49,14 @@ const ConfirmEmail = () => {
           <Text className="text-white font-[500]">{`Confirmation code sent to  ${email}`}</Text>
 
           <View className="mt-10 ">
-            <Form />
+            <Form setConfirm={setConfirm} confirm={confirm} />
 
             <View className="mt-10">
-              <Text className="text-white text-center mb-[200]">Resend code in 56s</Text>
+              <Text className="text-white text-center mb-[200]">
+                Resend code in 56s
+              </Text>
 
-              <Button text={"Verify"} />
+              <Button function={handleConfirm} text={"Verify"} />
             </View>
           </View>
         </View>
