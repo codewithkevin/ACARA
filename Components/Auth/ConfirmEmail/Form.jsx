@@ -8,7 +8,6 @@ const Form = (props) => {
   const [input4, setInput4] = useState("");
 
   props.setConfirm(`${input1}${input2}${input3}${input4}`);
-  console.log(props.confirm);
 
   return (
     <View className="flex flex-row justify-between">

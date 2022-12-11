@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
+import { useNavigation } from "@react-navigation/native";
 
 export const ConfirmCode = () => {
+  const navigation = useNavigation();
   const [error, setError] = useState(error);
   const [isLoading, setIsLoading] = useState(true);
 
-  const confirmCode = async (confirm) => {
+  const confirmCode = async (confirm, email, password) => {
     setIsLoading(true);
     setError("");
 
@@ -28,6 +30,10 @@ export const ConfirmCode = () => {
     if (response.ok) {
       setIsLoading(false);
       console.log("Code Confirmed");
+      navigation.navigate("interest", {
+        email: email,
+        password: password,
+      });
     }
   };
 
