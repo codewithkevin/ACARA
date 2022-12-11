@@ -61,7 +61,7 @@ export default function AuthStack() {
             component={LogInScreen}
           />
           <Stack.Screen
-            options={{ headerShown: false }}
+            options={{ headerShown: false, gestureEnabled: false }}
             name="interest"
             component={InterestScreen}
           />
