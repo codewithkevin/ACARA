@@ -62,7 +62,6 @@ const InterestItems = () => {
     }
     if (!error) {
       setModalVisible(false);
-      setValidationMessage(error);
     }
   };
 
