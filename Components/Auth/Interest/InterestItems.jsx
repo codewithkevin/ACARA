@@ -53,7 +53,7 @@ const InterestItems = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await errorFunction(interest);
+    await errorFunction(interest, email, password);
 
     if (error) {
       setModalVisible(true);
@@ -64,13 +64,7 @@ const InterestItems = () => {
       setModalVisible(false);
       setValidationMessage(error);
     }
-    navigation.navigate("profile", {
-      email: email,
-      password: password,
-      interest: interest,
-    });
   };
-  
 
   return (
     <View>

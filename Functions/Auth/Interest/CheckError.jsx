@@ -6,7 +6,7 @@ export const CheckError = () => {
   const [error, setError] = useState(error);
   const [isLoading, setIsLoading] = useState(true);
 
-  const errorFunction = async (interest) => {
+  const errorFunction = async (interest, email, password) => {
     setIsLoading(true);
     setError("");
 
@@ -29,6 +29,11 @@ export const CheckError = () => {
     if (response.ok) {
       setIsLoading(false);
       setError("");
+      navigation.navigate("profile", {
+        email: email,
+        password: password,
+        interest: interest,
+      });
     }
   };
 
