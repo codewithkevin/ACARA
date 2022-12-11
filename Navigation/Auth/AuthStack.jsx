@@ -51,7 +51,7 @@ export default function AuthStack() {
             component={SignUpScreen}
           />
           <Stack.Screen
-            options={{ headerShown: false, gestureEnabled: false }}
+            options={{ headerShown: false }}
             name="confirmemail"
             component={ConfirmEmail}
           />
@@ -61,7 +61,7 @@ export default function AuthStack() {
             component={LogInScreen}
           />
           <Stack.Screen
-            options={{ headerShown: false }}
+            options={{ headerShown: false, gestureEnabled: false }}
             name="interest"
             component={InterestScreen}
           />
