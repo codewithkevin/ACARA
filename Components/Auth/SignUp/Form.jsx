@@ -33,21 +33,16 @@ const Form = () => {
 
     if (error) {
       setModalVisible(true);
-      setValidationMessage(errorMessage);
-      setError(null)
+      setValidationMessage(error);
+      setError("");
     }
     if (!error) {
       setModalVisible(false);
-      setValidationMessage(errorMessage);
-      error == false
-        ? navigation.navigate("confirmemail", {
-            email: email,
-            password: password,
-          })
-        : null;
-    }
-    if (error == null) {
-      setModalVisible(false);
+      setValidationMessage(error);
+      navigation.navigate("confirmemail", {
+        email: email,
+        password: password,
+      });
     }
   };
 
