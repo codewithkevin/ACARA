@@ -5,6 +5,8 @@ export const ConfirmCode = () => {
   const navigation = useNavigation();
   const [error, setError] = useState(error);
   const [isLoading, setIsLoading] = useState(true);
+  const [isError, setIsError] = useState(false);
+  const [isConfirm, setIsConfirm] = useState(false);
 
   const confirmCode = async (confirm, email, password) => {
     setIsLoading(true);
@@ -24,18 +26,15 @@ export const ConfirmCode = () => {
     if (!response.ok) {
       setIsLoading(false);
       setError(json.error);
+      setIsError(true);
       console.log(error);
-      console.log("Error");
     }
     if (response.ok) {
       setIsLoading(false);
+      setIsConfirm(true);
       console.log("Code Confirmed");
-      navigation.navigate("interest", {
-        email: email,
-        password: password,
-      });
     }
   };
 
-  return { confirmCode };
+  return { confirmCode, isConfirm, isError, error };
 };
