@@ -15,25 +15,25 @@ const Form = (props) => {
         maxLength={1}
         keyboardType="numeric"
         value={input1}
-        className="bg-[#263159] border  text-white text-sm  block w-[70] rounded-2xl p-7 placeholder-white"
+        className="bg-[#1c2039] border  text-white text-sm  block w-[70] rounded-2xl p-7 placeholder-white"
         onChangeText={(text) => setInput1(text)}
       />
       <TextInput
-        className="bg-[#263159] border  text-white text-sm  block w-[70] rounded-2xl p-7 placeholder-white"
+        className="bg-[#1c2039]  border  text-white text-sm  block w-[70] rounded-2xl p-7 placeholder-white"
         maxLength={1}
         keyboardType="numeric"
         value={input2}
         onChangeText={(text) => setInput2(text)}
       />
       <TextInput
-        className="bg-[#263159] border  text-white text-sm  block w-[70] rounded-2xl p-7 placeholder-white"
+        className="bg-[#1c2039]  border  text-white text-sm  block w-[70] rounded-2xl p-7 placeholder-white"
         maxLength={1}
         keyboardType="numeric"
         value={input3}
         onChangeText={(text) => setInput3(text)}
       />
       <TextInput
-        className="bg-[#263159] border  text-white text-sm  block w-[70] rounded-2xl p-7 placeholder-white"
+        className="bg-[#1c2039]  border  text-white text-sm  block w-[70] rounded-2xl p-7 placeholder-white"
         maxLength={1}
         keyboardType="numeric"
         value={input4}

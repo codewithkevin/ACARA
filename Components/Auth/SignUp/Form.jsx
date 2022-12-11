@@ -48,7 +48,7 @@ const Form = () => {
         <View className="mb-7">
           <Text className="ml-5 mb-2 text-gray-200">Email</Text>
           <TextInput
-            className="bg-[#263159] border  text-white text-sm rounded-[50px] block w-full p-4 placeholder-white"
+            className="bg-[#1c2039]  border  text-white text-sm rounded-[50px] block w-full p-4 placeholder-white"
             placeholderTextColor="#000"
             containerStyle={{ marginTop: 10, backgroundColor: "white" }}
             value={email}
@@ -59,7 +59,7 @@ const Form = () => {
         <View className="mb-7">
           <Text className="ml-5 mb-2 text-gray-200">Password</Text>
           <TextInput
-            className="bg-[#263159] border  text-white text-sm rounded-[50px] block w-full p-4 placeholder-white"
+            className="bg-[#1c2039]  border  text-white text-sm rounded-[50px] block w-full p-4 placeholder-white"
             placeholderTextColor="#000"
             containerStyle={{ marginTop: 10, backgroundColor: "white" }}
             value={password}
@@ -78,7 +78,7 @@ const Form = () => {
         </View>
 
         <View className="flex justify-around flex-row mt-5 mb-7">
-          <TouchableOpacity className=" bg-[#263159] p-5 h-[70px] rounded-2xl w-[150]">
+          <TouchableOpacity className="bg-[#1c2039]  p-5 h-[70px] rounded-2xl w-[150]">
             <View className="flex-1 flex-row justify-between items-center p-0">
               <Image
                 className="w-[40] h-[40]"
@@ -88,7 +88,7 @@ const Form = () => {
             </View>
           </TouchableOpacity>
 
-          <TouchableOpacity className=" bg-[#263159] p-5 h-[70px] rounded-2xl w-[150]">
+          <TouchableOpacity className=" bg-[#1c2039]  p-5 h-[70px] rounded-2xl w-[150]">
             <View className="flex-1 flex-row justify-around items-center p-0">
               <Image
                 className="w-[40] h-[40]"
