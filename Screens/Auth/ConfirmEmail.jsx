@@ -13,13 +13,19 @@ import Button from "./../../Components/Buttons/Button";
 import { SendCode } from "./../../Functions/Auth/ConfirmEmail/SendCode";
 import { useEffect, useState } from "react";
 import { ConfirmCode } from "./../../Functions/Auth/ConfirmEmail/ConfirmCode";
+import AuthPopup from "./../../Components/ModalPopup/Auth/AuthPopup";
+import { useNavigation } from "@react-navigation/native";
 
 const ConfirmEmail = () => {
+  const navigation = useNavigation();
   const { sendMail } = SendCode();
-  const { confirmCode } = ConfirmCode();
+  const { confirmCode, isError, isConfirm, error } = ConfirmCode();
 
   //States
   const [confirm, setConfirm] = useState();
+
+  const errorImage = "../../assets/Error/Error.png";
+  const successImage = "../../assets/Success/success.png";
 
   //ROutes
   const route = useRoute();
@@ -27,25 +33,45 @@ const ConfirmEmail = () => {
   const email = route.params.email;
   const password = route.params.password;
 
+  //Modal Popup
+  const [modalVisible, setModalVisible] = useState(false);
+  const [validationMessage, setValidationMessage] = useState("");
+
   const dismissKeyboard = () => {
     Keyboard.dismiss();
   };
 
   const handleConfirm = () => {
     confirmCode(confirm);
+
+    if (isError) {
+      setModalVisible(true);
+      setValidationMessage("Incorrect Confirmation Code");
+    }
+    if (isConfirm) {
+      const errorImage = "../../assets/Success/success.png";
+      setModalVisible(true);
+      setValidationMessage("Email Confirmed");
+      navigation.navigate("interest", {
+        email: email,
+        password: password,
+      });
+    }
   };
 
   useEffect(() => {
     sendMail(email);
   }, []);
 
-  console.log(confirm);
-
   return (
     <TouchableWithoutFeedback onPress={dismissKeyboard}>
       <SafeAreaView className="flex-1 items-center ml-3">
         <Title header={"Confirm Code"} />
-        <View className="flex-1 mt-[220px]">
+        <Image
+          className="w-[100] h-[100] mt-5"
+          source={require("../../assets/Auth/message.png")}
+        />
+        <View className="flex-1 mt-[110px]">
           <Text className="text-white font-[500]">{`Confirmation code sent to  ${email}`}</Text>
 
           <View className="mt-10 ">
@@ -60,6 +86,13 @@ const ConfirmEmail = () => {
             </View>
           </View>
         </View>
+
+        <AuthPopup
+          setModalVisible={setModalVisible}
+          modalVisible={modalVisible}
+          validationMessage={validationMessage}
+          image={require(errorImage)}
+        />
       </SafeAreaView>
     </TouchableWithoutFeedback>
   );
