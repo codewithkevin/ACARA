@@ -49,9 +49,6 @@ const ConfirmEmail = () => {
       setValidationMessage("Incorrect Confirmation Code");
     }
     if (isConfirm) {
-      const errorImage = "../../assets/Success/success.png";
-      setModalVisible(true);
-      setValidationMessage("Email Confirmed");
       navigation.navigate("interest", {
         email: email,
         password: password,
