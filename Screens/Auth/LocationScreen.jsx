@@ -10,12 +10,6 @@ const LocationScreen = () => {
 
   return (
     <View className="bg-white" style={styles.container}>
-      <TextInput
-        style={styles.input}
-        placeholder="Enter location"
-        value={location}
-        onChangeText={(text) => setLocation(text)}
-      />
       <MapView
         style={styles.map}
         initialRegion={{
@@ -25,15 +19,14 @@ const LocationScreen = () => {
           longitudeDelta: 0.0421,
         }}
       >
-        {location && (
-          <Marker
-            coordinate={{
-              latitude: 37.78825,
-              longitude: -122.4324,
-            }}
-            title={location}
-          />
-        )}
+        <Marker
+          coordinate={{ latitude: 37.78825, longitude: -122.4324 }}
+          title="My Marker"
+          description="Some description"
+          onPress={() => {
+            alert("HomeScreen");
+          }}
+        />
       </MapView>
     </View>
   );
