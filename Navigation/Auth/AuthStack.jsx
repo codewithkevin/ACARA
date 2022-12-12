@@ -15,6 +15,7 @@ import ConfirmEmail from "./../../Screens/Auth/ConfirmEmail";
 //Function Import
 import { CheckFirstLanch } from "./../../Functions/App/CheckFirstLanuch";
 import { useThemeContext } from "./../../Hooks/useThemeContext";
+import LocationScreen from "./../../Screens/Auth/LocationScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -32,7 +33,7 @@ export default function AuthStack() {
       {isloading == false ? null : (
         <Stack.Navigator
           initialRouteName={`${
-            isAppFirstLaunched ? "OnboardingScreens" : "signup"
+            isAppFirstLaunched ? "OnboardingScreens" : "location"
           }`}
         >
           <Stack.Screen
@@ -49,6 +50,11 @@ export default function AuthStack() {
             options={{ headerShown: false, gestureEnabled: false }}
             name="signup"
             component={SignUpScreen}
+          />
+          <Stack.Screen
+            options={{ headerShown: false, gestureEnabled: false }}
+            name="location"
+            component={LocationScreen}
           />
           <Stack.Screen
             options={{ headerShown: false }}
