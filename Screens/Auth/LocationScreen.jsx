@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { TextInput, View, StyleSheet } from "react-native";
 import MapView from "react-native-maps";
+import { Marker } from "react-native-maps";
 
 const LocationScreen = () => {
   const [location, setLocation] = useState("");
@@ -25,7 +26,7 @@ const LocationScreen = () => {
         }}
       >
         {location && (
-          <MapView.Marker
+          <Marker
             coordinate={{
               latitude: 37.78825,
               longitude: -122.4324,
