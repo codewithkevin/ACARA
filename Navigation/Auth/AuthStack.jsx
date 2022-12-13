@@ -33,7 +33,7 @@ export default function AuthStack() {
       {isloading == false ? null : (
         <Stack.Navigator
           initialRouteName={`${
-            isAppFirstLaunched ? "OnboardingScreens" : "signup"
+            isAppFirstLaunched ? "OnboardingScreens" : "try"
           }`}
         >
           <Stack.Screen
@@ -50,6 +50,11 @@ export default function AuthStack() {
             options={{ headerShown: false, gestureEnabled: false }}
             name="signup"
             component={SignUpScreen}
+          />
+          <Stack.Screen
+            options={{ headerShown: false, gestureEnabled: false }}
+            name="try"
+            component={LocationScreen}
           />
           <Stack.Screen
             options={{ headerShown: false }}

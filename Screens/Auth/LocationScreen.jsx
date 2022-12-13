@@ -34,7 +34,7 @@ const LocationScreen = () => {
   const uploadingImage = async () => {
     setUploading(true);
 
-    const imageRef = ref(storage, `imag`);
+    const imageRef = ref(storage, `profile/image`);
 
     let img = await fetch(image.uri);
     let blob = await img.blob();
