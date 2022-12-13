@@ -10,7 +10,8 @@ import {
   Text,
 } from "react-native";
 import * as ImagePicker from "expo-image-picker";
-import { app, storage } from "../../config.js";
+import { app, storage, auth } from "../../config.js";
+import { getStorage, ref, uploadBytes, uploadString } from "firebase/storage";
 
 const LocationScreen = () => {
   const [image, setImage] = useState(null);
@@ -22,6 +23,7 @@ const LocationScreen = () => {
       allowsEditing: true,
       aspect: [4, 3],
       quality: 1,
+      convertToPNG: true,
     });
 
     const source = { uri: result.uri };
@@ -31,16 +33,20 @@ const LocationScreen = () => {
 
   const uploadingImage = async () => {
     setUploading(true);
-    const response = await fetch(image.uri);
-    const blob = await response.blob();
-    const filename = image.uri.substring(image.uri.lastIndexOf("/") + 1);
-    var reff = app.storage().ref().child(filename).put(blob);
 
-    try {
-      await reff;
-    } catch (error) {
-      console.log(e);
-    }
+    const imageRef = ref(storage, `imag`);
+
+    let img = await fetch(image.uri);
+    let blob = await img.blob();
+
+    await uploadBytes(imageRef, blob)
+      .then((snapshot) => {
+        console.log("Uploaded a blob or file!");
+      })
+      .catch((e) => {
+        alert(e);
+      });
+
     setUploading(false);
     Alert.alert("Photo Uploaded Successfully");
     setImage(null);
