@@ -22,10 +22,10 @@ export const uploadImage = () => {
     setImage(source);
   };
 
-  const uploadingImage = async () => {
+  const uploadingImage = async (email, username) => {
     setUploading(true);
 
-    const imageRef = ref(storage, `profile/image`);
+    const imageRef = ref(storage, `profile/${email}/image`);
 
     let img = await fetch(image.uri);
     let blob = await img.blob();

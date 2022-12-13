@@ -8,6 +8,7 @@ import AuthPopup from "./../../ModalPopup/Auth/AuthPopup";
 import DropDown from "./../../DropDown";
 import { useRoute } from "@react-navigation/native";
 import { useSignUp } from "./../../../Hooks/Auth/SignUp/useSignUp";
+import ImageUpload from "./ImageUpload";
 
 const Form = () => {
   //ROutes
@@ -47,6 +48,8 @@ const Form = () => {
 
   return (
     <View className="mt-1 w-full">
+      <ImageUpload email={email}  />
+
       <View className="mb-4">
         <Text className="ml-4 mb-2 text-gray-200">Full Name</Text>
         <TextInput
