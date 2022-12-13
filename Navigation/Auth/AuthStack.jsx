@@ -15,6 +15,7 @@ import ConfirmEmail from "./../../Screens/Auth/ConfirmEmail";
 //Function Import
 import { CheckFirstLanch } from "./../../Functions/App/CheckFirstLanuch";
 import { useThemeContext } from "./../../Hooks/useThemeContext";
+import LocationScreen from "./../../Screens/Auth/LocationScreen";
 
 const Stack = createNativeStackNavigator();
 
