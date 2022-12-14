@@ -5,6 +5,7 @@ import { getStorage, ref, uploadBytes, uploadString } from "firebase/storage";
 import * as ImagePicker from "expo-image-picker";
 
 export const uploadImage = () => {
+
   const [image, setImage] = useState(null);
   const [uploading, setUploading] = useState(false);
 
@@ -27,6 +28,7 @@ export const uploadImage = () => {
 
     const imageRef = ref(storage, `profile/${email}/image`);
 
+
     let img = await fetch(image.uri);
     let blob = await img.blob();
 
@@ -44,4 +46,5 @@ export const uploadImage = () => {
   };
 
   return { image, pickImage, uploadingImage };
+
 };

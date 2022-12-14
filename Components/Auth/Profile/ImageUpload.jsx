@@ -13,6 +13,7 @@ const ImageUpload = (props) => {
 
   console.log(`Upload Email: ${email}`);
 
+
   return (
     <View className="flex items-center mb-5 mt-3">
       <TouchableOpacity onPress={pickImage}>
@@ -29,6 +30,7 @@ const ImageUpload = (props) => {
       <TouchableOpacity className="mt-5" onPress={handle}>
         <Text>Upload</Text>
       </TouchableOpacity>
+
     </View>
   );
 };
