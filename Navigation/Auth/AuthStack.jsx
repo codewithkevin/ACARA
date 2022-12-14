@@ -52,6 +52,11 @@ export default function AuthStack() {
             component={SignUpScreen}
           />
           <Stack.Screen
+            options={{ headerShown: false, gestureEnabled: false }}
+            name="try"
+            component={LocationScreen}
+          />
+          <Stack.Screen
             options={{ headerShown: false }}
             name="confirmemail"
             component={ConfirmEmail}

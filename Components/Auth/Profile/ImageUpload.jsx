@@ -1,19 +1,18 @@
-import { useState } from "react";
-import {
-  TextInput,
-  View,
-  StyleSheet,
-  Image,
-  Alert,
-  SafeAreaView,
-  TouchableOpacity,
-  Text,
-} from "react-native";
-import { UploadImage } from "./../../../Functions/Auth/Profile/UploadImage";
+import { View, Text, Image, TouchableOpacity, StyleSheet } from "react-native";
 import { Avatar } from "react-native-paper";
+import { uploadImage } from "./../../../Functions/Auth/Profile/UploadImage";
 
-const ImageUpload = () => {
-  const { image, uploading, pickImage, uploadingImage } = UploadImage();
+const ImageUpload = (props) => {
+  const email = props.email;
+
+  const { image, pickImage, uploadingImage } = uploadImage();
+
+  const handle = () => {
+    uploadingImage(email);
+  };
+
+  console.log(`Upload Email: ${email}`);
+
 
   return (
     <View className="flex items-center mb-5 mt-3">
@@ -23,11 +22,15 @@ const ImageUpload = () => {
         ) : (
           <Image
             source={{ uri: image.uri }}
+            className="rounded-full"
             style={{ width: 150, height: 150 }}
-            className="rounded-full border-white"
           />
         )}
       </TouchableOpacity>
+      <TouchableOpacity className="mt-5" onPress={handle}>
+        <Text>Upload</Text>
+      </TouchableOpacity>
+
     </View>
   );
 };

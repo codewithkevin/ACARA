@@ -1,9 +1,11 @@
 import { useState } from "react";
-import * as ImagePicker from "expo-image-picker";
+import { Alert } from "react-native";
 import { app, storage, auth } from "../../../config.js";
 import { getStorage, ref, uploadBytes, uploadString } from "firebase/storage";
+import * as ImagePicker from "expo-image-picker";
 
-export const UploadImage = () => {
+export const uploadImage = () => {
+
   const [image, setImage] = useState(null);
   const [uploading, setUploading] = useState(false);
 
@@ -21,10 +23,11 @@ export const UploadImage = () => {
     setImage(source);
   };
 
-  const uploadingImage = async () => {
+  const uploadingImage = async (email, username) => {
     setUploading(true);
 
-    const imageRef = ref(storage, `imag`);
+    const imageRef = ref(storage, `profile/${email}/image`);
+
 
     let img = await fetch(image.uri);
     let blob = await img.blob();
@@ -42,5 +45,6 @@ export const UploadImage = () => {
     setImage(null);
   };
 
-  return { image, uploading, pickImage, uploadingImage };
+  return { image, pickImage, uploadingImage };
+
 };
