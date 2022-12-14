@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { TouchableOpacity } from "react-native";
+import { TouchableOpacity, View } from "react-native";
 
 //Icons Support
 import { Octicons } from "@expo/vector-icons";
@@ -21,19 +21,22 @@ const TabNavigation = () => {
 
   const MyTabBarIcon = (props) => {
     return (
-      <TouchableOpacity
+      <View
         style={{
-          backgroundColor: "#FF0000", // Set your desired color here
+          backgroundColor: "#191e3e", // Set your desired color here
           padding: 10,
           borderRadius: 5,
+          width: 50,
+          marginLeft: 25,
         }}
       >
-        <MaterialCommunityIcons
-          name={"home-outline"}
-          color={"white"}
-          size={12}
+        <Fontisto
+          name={"home"}
+          color={"#6475ff"}
+          size={24}
+          // onPress={toggleIsLoading}
         />
-      </TouchableOpacity>
+      </View>
     );
   };
 
