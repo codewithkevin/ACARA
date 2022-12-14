@@ -1,6 +1,6 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import React from "react";
+import { useThemeContext } from "./../Hooks/useThemeContext";
 
 //Screens Import
 import TabNavigation from "./TabNavigation";
@@ -8,8 +8,9 @@ import TabNavigation from "./TabNavigation";
 const Stack = createNativeStackNavigator();
 
 const MyStack = () => {
+  const { theme } = useThemeContext();
   return (
-    <NavigationContainer>
+    <NavigationContainer theme={theme}>
       <Stack.Navigator>
         <Stack.Screen
           options={{ headerShown: false }}
