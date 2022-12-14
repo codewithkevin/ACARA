@@ -48,7 +48,13 @@ const Form = () => {
 
   return (
     <View className="mt-1 w-full">
-      <ImageUpload email={email}  />
+      <ImageUpload email={email} />
+      <View
+        className="height-1 mb-7 bg-gray-700"
+        style={{
+          height: 1,
+        }}
+      ></View>
 
       <View className="mb-4">
         <Text className="ml-4 mb-2 text-gray-200">Full Name</Text>
