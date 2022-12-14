@@ -13,24 +13,32 @@ const ImageUpload = (props) => {
 
   console.log(`Upload Email: ${email}`);
 
-
   return (
     <View className="flex items-center mb-5 mt-3">
       <TouchableOpacity onPress={pickImage}>
         {!image ? (
           <Avatar.Text size={150} color="white" label="E" />
         ) : (
-          <Image
-            source={{ uri: image.uri }}
-            className="rounded-full"
-            style={{ width: 150, height: 150 }}
-          />
+          <View className="static....">
+            <Image
+              source={{ uri: image.uri }}
+              className="rounded-full"
+              style={{ width: 150, height: 150 }}
+            />
+            <View className="absolute bottom-0 right-0">
+              <TouchableOpacity
+                className="mt-5 bg-slate-400 rounded-full"
+                onPress={handle}
+              >
+                <Image
+                  className="w-[30] h-[30]"
+                  source={require("../../../assets/Arrows/correct.png")}
+                />
+              </TouchableOpacity>
+            </View>
+          </View>
         )}
       </TouchableOpacity>
-      <TouchableOpacity className="mt-5" onPress={handle}>
-        <Text>Upload</Text>
-      </TouchableOpacity>
-
     </View>
   );
 };
