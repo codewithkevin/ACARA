@@ -6,6 +6,7 @@ import { TouchableOpacity, View } from "react-native";
 //Icons Support
 import { Octicons } from "@expo/vector-icons";
 import { Fontisto } from "@expo/vector-icons";
+import { Ionicons } from "@expo/vector-icons";
 
 //Screens Import
 import HomeScreen from "../Screens/HomeScreen";
@@ -19,35 +20,19 @@ const Tab = createBottomTabNavigator();
 const TabNavigation = () => {
   const [show, setShow] = useState(true);
 
-  const MyTabBarIcon = (props) => {
-    return (
-      <View
-        style={{
-          backgroundColor: "#191e3e", // Set your desired color here
-          padding: 10,
-          borderRadius: 5,
-          width: 50,
-          marginLeft: 25,
-        }}
-      >
-        <Fontisto
-          name={"home"}
-          color={"#6475ff"}
-          size={24}
-          // onPress={toggleIsLoading}
-        />
-      </View>
-    );
-  };
-
   return (
     <Tab.Navigator
       initialRouteName="Home"
       screenOptions={{
         tabBarStyle: {
-          borderTopWidth: 0,
+          borderTopWidth: 1,
+          padding: 3,
           display: "flex",
           flexDirection: "row",
+          height: 100,
+          borderTop: 200,
+          borderTopLeftRadius: 5,
+          borderTopRightRadius: 5,
         },
         tabBarLabelPosition: "beside-icon",
       }}
@@ -57,7 +42,7 @@ const TabNavigation = () => {
         component={HomeScreen}
         options={{
           tabBarLabel: "",
-          tabBarIcon: MyTabBarIcon,
+          tabBarIcon: makeIconRender("home-outline"),
           headerShown: false,
           showLabel: false,
         }}
@@ -67,7 +52,7 @@ const TabNavigation = () => {
         component={EventsScreen}
         options={{
           tabBarLabel: "",
-          tabBarIcon: makeIconRender("home-outline"),
+          tabBarIcon: makeIconRender("calendar-month-outline"),
           headerShown: false,
           showLabel: false,
         }}
@@ -77,7 +62,7 @@ const TabNavigation = () => {
         component={LocationScreen}
         options={{
           tabBarLabel: "",
-          tabBarIcon: makeIconRender("home-outline"),
+          tabBarIcon: makeIconRender("map"),
           headerShown: false,
           showLabel: false,
         }}
@@ -87,7 +72,7 @@ const TabNavigation = () => {
         component={CalenderScreen}
         options={{
           tabBarLabel: "",
-          tabBarIcon: makeIconRender("home-outline"),
+          tabBarIcon: makeIconRender("calendar-blank"),
           headerShown: false,
           showLabel: false,
         }}
@@ -97,7 +82,7 @@ const TabNavigation = () => {
         component={ProfileScreen}
         options={{
           tabBarLabel: "",
-          tabBarIcon: makeIconRender("home-outline"),
+          tabBarIcon: Icon("person"),
           headerShown: false,
           showLabel: false,
         }}
@@ -110,12 +95,36 @@ export default TabNavigation;
 
 function makeIconRender(name) {
   return ({ color, size }) => (
-    <MaterialCommunityIcons name={name} color={color} size={size} />
+    <View
+      style={{
+        backgroundColor: "#191e3e", // Set your desired color here
+        padding: 10,
+        borderRadius: 10,
+        width: 50,
+        marginLeft: 25,
+        alignItems: "center",
+        justifyContent: "center",
+      }}
+    >
+      <MaterialCommunityIcons name={name} color={color} size={size} />
+    </View>
   );
 }
 
 function Icon(name) {
   return ({ color, size }) => (
-    <Octicons name={name} color={color} size={size} />
+    <View
+      style={{
+        backgroundColor: "#191e3e", // Set your desired color here
+        padding: 10,
+        borderRadius: 10,
+        width: 50,
+        marginLeft: 25,
+        alignItems: "center",
+        justifyContent: "center",
+      }}
+    >
+      <Ionicons name={name} color={color} size={size} />
+    </View>
   );
 }
