@@ -4,12 +4,12 @@ import { SimpleLineIcons } from "@expo/vector-icons";
 const Title = () => {
   return (
     <View className="flex flex-row justify-between">
-      <View className="flex flex-row">
+      <View className="flex flex-row items-center space-x-4">
         <Image
-          className="w-[80] h-[80]"
+          className="w-[50] h-[50]"
           source={require("../../assets/Loading/Logo.png")}
         />
-        <Text className="text-white text-2xl mt-3 font-bold">Profile</Text>
+        <Text className="text-white text-2xl font-bold">Profile</Text>
       </View>
 
       <View className="mr-4 mt-3">

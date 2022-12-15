@@ -4,7 +4,7 @@ import Title from "./../../Components/Profile/Title";
 
 const ProfileScreen = () => {
   return (
-    <SafeAreaView className="">
+    <SafeAreaView className="ml-4">
       <Title />
     </SafeAreaView>
   );
