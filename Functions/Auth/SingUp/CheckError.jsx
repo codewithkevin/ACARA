@@ -4,7 +4,7 @@ import { useNavigation } from "@react-navigation/native";
 export const checkError = () => {
   const navigation = useNavigation();
   const [error, setError] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(null);
 
   const errorFunction = async (email, password) => {
     setIsLoading(true);
@@ -18,17 +18,20 @@ export const checkError = () => {
 
     const json = await response.json();
 
+    if (response.ok) {
+      setIsLoading(false);
+    }
+
     if (!response.ok) {
       setIsLoading(false);
       setError(json.error);
       console.log(error);
     }
-    if (response.ok) {
-      setIsLoading(false);
-      setError("");
-      // navigation.navigate("interest");
-    }
   };
+
+  useEffect(() => {
+    errorFunction();
+  }, []);
 
   return { errorFunction, isLoading, error, setError };
 };

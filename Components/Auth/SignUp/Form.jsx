@@ -1,4 +1,11 @@
-import { View, Text, TextInput, TouchableOpacity, Image } from "react-native";
+import {
+  View,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  Image,
+  Alert,
+} from "react-native";
 import React from "react";
 import { Fontisto } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
@@ -24,21 +31,15 @@ const Form = () => {
     e.preventDefault();
     await errorFunction(email, password);
 
-    if (isLoading) {
-      setModalVisible(true);
-      setValidationMessage("Please Wait...");
-    } else {
-      if (error) {
-        isLoading ? setModalVisible(false) : setModalVisible(true);
-        setValidationMessage(error);
-      }
-      if (!error) {
+    isLoading
+      ? Alert.alert("Fetching Data", "Please wait...")
+      : error
+      ? (setModalVisible(true), setValidationMessage(error))
+      : (setModalVisible(false),
         navigation.navigate("confirmemail", {
           email: email,
           password: password,
-        });
-      }
-    }
+        }));
   };
 
   console.log("Loading: " + isLoading);
