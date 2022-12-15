@@ -3,12 +3,12 @@ import { useNavigation } from "@react-navigation/native";
 
 export const checkError = () => {
   const navigation = useNavigation();
-  const [error, setError] = useState("");
+  const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
   const errorFunction = async (email, password) => {
     setIsLoading(true);
-    setError("");
+    setError(null);
 
     const response = await fetch("http://172.20.10.2:8000/api/user/check", {
       method: "POST",

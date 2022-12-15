@@ -18,33 +18,30 @@ const Form = () => {
 
   const errorImage = "../../../assets/Error/Error.png";
 
-  const {
-    error,
-    errorFunction,
-    isLoading,
-    errorMessage,
-    setErrorMessage,
-    setError,
-  } = checkError();
+  const { errorFunction, isLoading, error, setError } = checkError();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     await errorFunction(email, password);
 
-    if (error) {
+    if (isLoading) {
       setModalVisible(true);
-      setValidationMessage(error);
-      setError("");
-    }
-    if (!error) {
-      setModalVisible(false);
-      setValidationMessage(error);
-      navigation.navigate("confirmemail", {
-        email: email,
-        password: password,
-      });
+      setValidationMessage("Please Wait...");
+    } else {
+      if (error) {
+        isLoading ? setModalVisible(false) : setModalVisible(true);
+        setValidationMessage(error);
+      }
+      if (!error) {
+        navigation.navigate("confirmemail", {
+          email: email,
+          password: password,
+        });
+      }
     }
   };
+
+  console.log("Loading: " + isLoading);
 
   return (
     <View className="mt-1 w-full items-center">
