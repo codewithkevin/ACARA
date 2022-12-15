@@ -26,7 +26,7 @@ const Form = () => {
   const interest = route.params.interest;
 
   const { signup, isLoading, error } = useSignUp();
-  const { image, pickImage, uploadingImage } = uploadImage();
+  const { image, pickImage, uploadingImage, uploading } = uploadImage();
 
   //Modal Popup
   const [modalVisible, setModalVisible] = useState(false);
@@ -44,6 +44,8 @@ const Form = () => {
     await signup(email, password, name, interest, username, genderValue);
     uploadingImage(email);
   };
+
+  uploading ? handleSubmit() : null;
 
   console.log(interest);
   console.log(email);

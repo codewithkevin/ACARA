@@ -25,7 +25,8 @@ const Form = () => {
 
   const errorImage = "../../../assets/Error/Error.png";
 
-  const { errorFunction, isLoading, error, setError } = checkError();
+  const { errorFunction, isLoading, error, setError, setIsLoading } =
+    checkError();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -33,14 +34,14 @@ const Form = () => {
 
     isLoading
       ? null
-      : // ? Alert.alert("Fetching Data", "Please wait...")
-      error
-      ? (setModalVisible(true), setValidationMessage(error))
+      : error
+      ? (setModalVisible(true), setValidationMessage(error), setIsLoading(null))
       : (setModalVisible(false),
         navigation.navigate("confirmemail", {
           email: email,
           password: password,
-        }));
+        }),
+        setIsLoading(null));
   };
 
   console.log("Loading: " + isLoading);
@@ -74,7 +75,10 @@ const Form = () => {
         </View>
 
         <View className="mb-7">
-          <Button function={handleSubmit} text={"Sign Up"} />
+          <Button
+            function={handleSubmit}
+            text={`${isLoading == null ? "Sign Up" : "Loading..."}`}
+          />
         </View>
 
         <View className="items-center">

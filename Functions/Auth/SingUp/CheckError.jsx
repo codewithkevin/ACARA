@@ -29,5 +29,5 @@ export const checkError = () => {
     }
   };
 
-  return { errorFunction, isLoading, error, setError };
+  return { setIsLoading, errorFunction, isLoading, error, setError };
 };

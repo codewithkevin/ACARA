@@ -43,5 +43,5 @@ export const uploadImage = () => {
     // setImage(null);
   };
 
-  return { image, pickImage, uploadingImage };
+  return { image, pickImage, uploadingImage, uploading };
 };
