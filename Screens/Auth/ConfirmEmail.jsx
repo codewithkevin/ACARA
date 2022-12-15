@@ -19,7 +19,7 @@ import { useNavigation } from "@react-navigation/native";
 const ConfirmEmail = () => {
   const navigation = useNavigation();
   const { sendMail } = SendCode();
-  const { confirmCode, isError, isConfirm, error } = ConfirmCode();
+  const { confirmCode, error, isLoading } = ConfirmCode();
 
   //States
   const [confirm, setConfirm] = useState();
@@ -44,21 +44,19 @@ const ConfirmEmail = () => {
   const handleConfirm = () => {
     confirmCode(confirm);
 
-    if (isError) {
-      setModalVisible(true);
-      setValidationMessage("Incorrect Confirmation Code");
-    }
-    if (isConfirm) {
-      navigation.navigate("interest", {
-        email: email,
-        password: password,
-      });
-    }
+    isLoading
+      ? null
+      : error
+      ? (setModalVisible(true),
+        setValidationMessage("Incorrect Confirmation Code"))
+      : navigation.navigate("interest", { email: email, password: password });
   };
 
   useEffect(() => {
     sendMail(email);
   }, []);
+
+  console.log(confirm);
 
   return (
     <TouchableWithoutFeedback onPress={dismissKeyboard}>

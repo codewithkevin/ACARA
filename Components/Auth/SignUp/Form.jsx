@@ -1,4 +1,11 @@
-import { View, Text, TextInput, TouchableOpacity, Image } from "react-native";
+import {
+  View,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  Image,
+  Alert,
+} from "react-native";
 import React from "react";
 import { Fontisto } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
@@ -18,33 +25,25 @@ const Form = () => {
 
   const errorImage = "../../../assets/Error/Error.png";
 
-  const {
-    error,
-    errorFunction,
-    isLoading,
-    errorMessage,
-    setErrorMessage,
-    setError,
-  } = checkError();
+  const { errorFunction, isLoading, error, setError } = checkError();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     await errorFunction(email, password);
 
-    if (error) {
-      setModalVisible(true);
-      setValidationMessage(error);
-      setError("");
-    }
-    if (!error) {
-      setModalVisible(false);
-      setValidationMessage(error);
-      navigation.navigate("confirmemail", {
-        email: email,
-        password: password,
-      });
-    }
+    isLoading
+      ? null
+      : // ? Alert.alert("Fetching Data", "Please wait...")
+      error
+      ? (setModalVisible(true), setValidationMessage(error))
+      : (setModalVisible(false),
+        navigation.navigate("confirmemail", {
+          email: email,
+          password: password,
+        }));
   };
+
+  console.log("Loading: " + isLoading);
 
   return (
     <View className="mt-1 w-full items-center">
