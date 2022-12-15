@@ -3,14 +3,12 @@ import { useNavigation } from "@react-navigation/native";
 
 export const ConfirmCode = () => {
   const navigation = useNavigation();
-  const [error, setError] = useState(error);
+  const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
-  const [isError, setIsError] = useState(false);
-  const [isConfirm, setIsConfirm] = useState(false);
 
   const confirmCode = async (confirm, email, password) => {
     setIsLoading(true);
-    setError("");
+    setError(null);
 
     const response = await fetch(
       "http://172.20.10.2:8000/api/user/confirmcode",
@@ -25,16 +23,14 @@ export const ConfirmCode = () => {
 
     if (!response.ok) {
       setIsLoading(false);
-      setError(json.error);
-      setIsError(true);
+      setError("Error" + json.error);
       console.log(error);
     }
     if (response.ok) {
       setIsLoading(false);
-      setIsConfirm(true);
       console.log("Code Confirmed");
     }
   };
 
-  return { confirmCode, isConfirm, isError, error };
+  return { confirmCode, error, isLoading };
 };

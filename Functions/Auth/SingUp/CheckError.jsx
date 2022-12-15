@@ -29,9 +29,5 @@ export const checkError = () => {
     }
   };
 
-  useEffect(() => {
-    errorFunction();
-  }, []);
-
   return { errorFunction, isLoading, error, setError };
 };

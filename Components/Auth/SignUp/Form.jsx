@@ -32,8 +32,9 @@ const Form = () => {
     await errorFunction(email, password);
 
     isLoading
-      ? Alert.alert("Fetching Data", "Please wait...")
-      : error
+      ? null
+      : // ? Alert.alert("Fetching Data", "Please wait...")
+      error
       ? (setModalVisible(true), setValidationMessage(error))
       : (setModalVisible(false),
         navigation.navigate("confirmemail", {
