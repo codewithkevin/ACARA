@@ -19,6 +19,7 @@
     "@react-navigation/bottom-tabs": "^6.4.1",
     "@react-navigation/native": "^6.0.14",
     "@react-navigation/native-stack": "^6.9.2",
+    "@rneui/themed": "^4.0.0-rc.7",
     "expo": "~47.0.8",
     "expo-image-picker": "~14.0.2",
     "expo-status-bar": "~1.4.2",
