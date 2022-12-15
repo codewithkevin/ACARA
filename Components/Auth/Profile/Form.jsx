@@ -9,6 +9,8 @@ import DropDown from "./../../DropDown";
 import { useRoute } from "@react-navigation/native";
 import { useSignUp } from "./../../../Hooks/Auth/SignUp/useSignUp";
 import ImageUpload from "./ImageUpload";
+import { uploadImage } from "./../../../Functions/Auth/Profile/UploadImage";
+import { Avatar } from "react-native-paper";
 
 const Form = () => {
   //ROutes
@@ -24,6 +26,7 @@ const Form = () => {
   const interest = route.params.interest;
 
   const { signup, isLoading, error } = useSignUp();
+  const { image, pickImage, uploadingImage } = uploadImage();
 
   //Modal Popup
   const [modalVisible, setModalVisible] = useState(false);
@@ -38,8 +41,8 @@ const Form = () => {
       setModalVisible(true);
       setValidationMessage(error);
     }
-
     await signup(email, password, name, interest, username, genderValue);
+    uploadingImage(email);
   };
 
   console.log(interest);
@@ -48,7 +51,21 @@ const Form = () => {
 
   return (
     <View className="mt-1 w-full">
-      <ImageUpload email={email} />
+      <View className="flex items-center mb-5 mt-3">
+        <TouchableOpacity onPress={pickImage}>
+          {!image ? (
+            <Avatar.Text size={150} color="white" label="E" />
+          ) : (
+            <View className="static....">
+              <Image
+                source={{ uri: image.uri }}
+                className="rounded-full"
+                style={{ width: 150, height: 150 }}
+              />
+            </View>
+          )}
+        </TouchableOpacity>
+      </View>
       <View
         className="height-1 mb-7 bg-gray-700"
         style={{
