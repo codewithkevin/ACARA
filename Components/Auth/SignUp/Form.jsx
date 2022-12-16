@@ -75,6 +75,7 @@ const Form = () => {
               padding: 1,
               placeholderTextColor: "white",
               marginLeft: 4,
+              paddingRight: 10,
             }}
             placeholder={"Email"}
             placeholderTextColor={"white"}
@@ -107,6 +108,7 @@ const Form = () => {
               padding: 1,
               placeholderTextColor: "white",
               marginLeft: 4,
+              paddingRight: 10,
             }}
             placeholder={"Password"}
             placeholderTextColor={"#797a7c"}
