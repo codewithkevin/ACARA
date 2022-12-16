@@ -62,10 +62,6 @@ const ConfirmEmail = () => {
     <TouchableWithoutFeedback onPress={dismissKeyboard}>
       <SafeAreaView className="flex-1 items-center ml-3">
         <Title header={"Confirm Code"} />
-        <Image
-          className="w-[100] h-[100] mt-5"
-          source={require("../../assets/Auth/message.png")}
-        />
         <View className="flex-1 mt-[110px]">
           <Text className="text-white font-[500]">{`Confirmation code sent to  ${email}`}</Text>
 
