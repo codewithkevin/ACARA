@@ -187,7 +187,7 @@ const SettingsScreen = () => {
               onPress={handleLogout}
               className="flex flex-row items-center space-x-4"
             >
-              <View className="bg-[#631919] p-3 rounded-full">
+              <View className="bg-[#191e3e] p-3 rounded-full">
                 <MaterialIcons name="logout" size={24} color="red" />
               </View>
               <Text className="text-[15px] font-md text-white">Logout</Text>
