@@ -11,8 +11,14 @@ import { Ionicons } from "@expo/vector-icons";
 import { SimpleLineIcons } from "@expo/vector-icons";
 import { MaterialIcons } from "@expo/vector-icons";
 import { FontAwesome } from "@expo/vector-icons";
+import { useLogout } from "./../../Hooks/Auth/Logout/useLogout";
 
 const SettingsScreen = () => {
+  const { logout } = useLogout();
+
+  const handleLogout = () => {
+    logout();
+  };
   return (
     <SafeAreaView className="flex-1 ml-5">
       <Title header={"Settings"} />
@@ -178,10 +184,10 @@ const SettingsScreen = () => {
         <View className="flex-row space-x-4 items-center p-0 justify-between">
           <View>
             <TouchableOpacity
+              onPress={handleLogout}
               className="flex flex-row items-center space-x-4"
-              onPress={() => navigation.goBack()}
             >
-              <View className="bg-[#191e3e] p-3 rounded-full">
+              <View className="bg-[#631919] p-3 rounded-full">
                 <MaterialIcons name="logout" size={24} color="red" />
               </View>
               <Text className="text-[15px] font-md text-white">Logout</Text>
