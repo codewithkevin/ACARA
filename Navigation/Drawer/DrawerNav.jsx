@@ -7,15 +7,16 @@ import { NavigationContainer } from "@react-navigation/native";
 import { Button, View, useWindowDimensions } from "react-native";
 
 //Cusmtomize
-import { DrawerContent } from "./DrawerContent";
-import { ThemeContext } from "./../context/ThemeContext";
+// import { DrawerContent } from "./DrawerContent";
 import React, { useContext } from "react";
-import Bottom from "./TabNavigation";
+import SettingsScreen from "./../../Screens/Settings/SettingsScreen";
+import TabNavigation from "./../TabNavigation";
+import { useThemeContext } from "./../../Hooks/useThemeContext";
 
 const Drawer = createDrawerNavigator();
 
 export default function Menu() {
-  const { isSwitchOn } = React.useContext(ThemeContext);
+  const { theme } = useThemeContext();
 
   const dimensions = useWindowDimensions();
 
@@ -24,18 +25,18 @@ export default function Menu() {
       screenOptions={{
         drawerType: dimensions.width >= 768 ? "permanent" : "front",
         drawerStyle: {
-          backgroundColor: isSwitchOn === true ? "#011928" : "#F5F5F5",
-          width: 280,
+          backgroundColor: "#131629",
+          width: "100%",
         },
       }}
       useLegacyImplementation={true}
-      drawerContent={(props) => <DrawerContent {...props} />}
-      initialRouteName="Home"
+      drawerContent={(props) => <SettingsScreen {...props} />}
+      initialRouteName="tabnavigation"
     >
       <Drawer.Screen
         options={{ drawerLabel: "Home", headerShown: false }}
-        name="movietime"
-        component={Bottom}
+        name="tabnavigation"
+        component={TabNavigation}
       />
     </Drawer.Navigator>
   );

@@ -4,6 +4,7 @@ import { useThemeContext } from "./../Hooks/useThemeContext";
 
 //Screens Import
 import TabNavigation from "./TabNavigation";
+import Menu from "./Drawer/DrawerNav";
 
 const Stack = createNativeStackNavigator();
 
@@ -14,8 +15,8 @@ const MyStack = () => {
       <Stack.Navigator>
         <Stack.Screen
           options={{ headerShown: false }}
-          name="TabNavigation"
-          component={TabNavigation}
+          name="menu"
+          component={Menu}
         />
       </Stack.Navigator>
     </NavigationContainer>
