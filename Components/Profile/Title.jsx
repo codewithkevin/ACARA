@@ -1,7 +1,11 @@
 import { View, Text, Image } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { SimpleLineIcons } from "@expo/vector-icons";
+import { useNavigation } from "@react-navigation/native";
+
 const Title = () => {
+  const navigation = useNavigation();
+
   return (
     <View className="flex flex-row justify-between">
       <View className="flex flex-row items-center space-x-4">
@@ -24,7 +28,12 @@ const Title = () => {
             justifyContent: "center",
           }}
         >
-          <SimpleLineIcons name="settings" size={24} color="#6475ff" />
+          <SimpleLineIcons
+            onPress={() => navigation.openDrawer()}
+            name="settings"
+            size={24}
+            color="#6475ff"
+          />
         </View>
       </View>
     </View>
