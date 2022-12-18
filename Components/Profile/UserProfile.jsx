@@ -13,6 +13,7 @@ import { useAuthContext } from "./../../Hooks/Auth/useAuthContext";
 const UserProfile = () => {
   const { user } = useAuthContext();
   const [image, setImage] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
   const [email, setEmail] = useState(user.email);
 
   useEffect(() => {
@@ -21,6 +22,7 @@ const UserProfile = () => {
       //   let blob = await img.blob();
       const downloadURL = await getDownloadURL(imageRef);
       setImage(downloadURL);
+      setIsLoading(false);
     };
 
     downloadImage();
@@ -30,12 +32,21 @@ const UserProfile = () => {
 
   return (
     <View className="flex justify-center items-center">
-      <Image
-        source={{
-          uri: `${image}`,
-        }}
-        className="w-[180px] h-[180px] rounded-full"
-      />
+      {isLoading ? (
+        <Image
+          source={{
+            uri: "https://images.unsplash.com/photo-1661956602926-db6b25f75947?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60",
+          }}
+          className="w-[180px] h-[180px] rounded-full"
+        />
+      ) : (
+        <Image
+          source={{
+            uri: `${image}`,
+          }}
+          className="w-[180px] h-[180px] rounded-full"
+        />
+      )}
     </View>
   );
 };
