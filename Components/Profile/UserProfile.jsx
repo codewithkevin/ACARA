@@ -35,7 +35,7 @@ const UserProfile = () => {
       {isLoading ? (
         <Image
           source={{
-            uri: "https://images.unsplash.com/photo-1661956602926-db6b25f75947?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60",
+            uri: `${image}`,
           }}
           className="w-[180px] h-[180px] rounded-full"
         />
