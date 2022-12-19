@@ -8,9 +8,11 @@ import {
   getDownloadURL,
 } from "firebase/storage";
 import { useState, useEffect } from "react";
+import { useAuthContext } from "./../../Hooks/Auth/useAuthContext";
 import { GetUserDetails } from "./../../Functions/GetUserDetails";
 
 const UserProfile = () => {
+  const { user } = useAuthContext();
   const { getData, email, interest, details, username } = GetUserDetails();
   const [image, setImage] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
