@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useAuthContext } from "./../Hooks/Auth/useAuthContext";
 
 export const GetUserDetails = () => {
@@ -6,6 +6,7 @@ export const GetUserDetails = () => {
   const [details, setDetails] = useState(user.details);
   const [username, setUsername] = useState();
   const [interest, setInterest] = useState([]);
+  const [name, setName] = useState();
   const [email, setEmail] = useState();
 
   const getData = async () => {
@@ -13,8 +14,13 @@ export const GetUserDetails = () => {
       setUsername(item.username);
       setEmail(item.email);
       setInterest(item.interest);
+      setName(item.name);
     });
   };
 
-  return { getData, email, interest, details, username };
+  useEffect(() => {
+    getData();
+  }, []);
+
+  return { getData, email, interest, details, username, name };
 };

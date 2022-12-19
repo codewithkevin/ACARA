@@ -9,6 +9,7 @@ import {
 import Title from "./../../Components/Profile/Title";
 import UserProfile from "./../../Components/Profile/UserProfile";
 import { useState, useCallback } from "react";
+import UserInfo from "./../../Components/Profile/UserInfo";
 
 const wait = (timeout) => {
   return new Promise((resolve) => setTimeout(resolve, timeout));
@@ -34,9 +35,11 @@ const ProfileScreen = () => {
           />
         }
         decelerationRate="fast"
+        className="mb-10"
       >
         <View className="p-5">
           <UserProfile />
+          <UserInfo />
         </View>
       </ScrollView>
     </SafeAreaView>

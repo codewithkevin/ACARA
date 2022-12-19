@@ -13,9 +13,10 @@ import { GetUserDetails } from "./../../Functions/GetUserDetails";
 
 const UserProfile = () => {
   const { user } = useAuthContext();
-  const { getData, email, interest, details, username } = GetUserDetails();
+  const { interest, details, username } = GetUserDetails();
   const [image, setImage] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [email, setEmail] = useState(user.email);
 
   useEffect(() => {
     const downloadImage = async () => {
@@ -26,8 +27,9 @@ const UserProfile = () => {
     };
 
     downloadImage();
-    getData();
   }, []);
+
+  console.log(email);
 
   return (
     <View className="flex justify-center items-center">

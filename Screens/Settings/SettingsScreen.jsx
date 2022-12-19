@@ -19,6 +19,7 @@ const SettingsScreen = () => {
   const handleLogout = () => {
     logout();
   };
+  
   return (
     <SafeAreaView className="flex-1 ml-5">
       <Title header={"Settings"} />
