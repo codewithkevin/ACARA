@@ -50,7 +50,7 @@ const UserInfo = () => {
             data={interest}
             numColumns={4}
             renderItem={({ item }) => (
-              <View className="border-2  rounded-full border-[#6475ff] p-3 mx-2 my-2">
+              <View className="border-2  rounded-full border-[#6475ff] p-4 mx-2 my-2">
                 <Text className="text-[#6475ff]">{item}</Text>
               </View>
             )}
