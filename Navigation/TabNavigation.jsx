@@ -22,7 +22,7 @@ const TabNavigation = () => {
 
   return (
     <Tab.Navigator
-      initialRouteName="Profile"
+      initialRouteName="Home"
       screenOptions={{
         tabBarStyle: {
           borderTopWidth: 1,

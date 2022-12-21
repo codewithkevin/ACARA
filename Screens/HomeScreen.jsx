@@ -1,6 +1,7 @@
 import { View, Text, TouchableOpacity } from "react-native";
 import React from "react";
-import { useLogout } from './../Hooks/Auth/Logout/useLogout';
+import { useLogout } from "./../Hooks/Auth/Logout/useLogout";
+import UploadEvents from "./../Components/UploadEvents";
 
 const HomeScreen = () => {
   const { logout } = useLogout();
@@ -10,13 +11,8 @@ const HomeScreen = () => {
   };
 
   return (
-    <View className="flex-1 justify-center items-center">
-      <TouchableOpacity
-        onPress={handleLogout}
-        className="items-center mt-5 bg-[#009EFF] w-80 p-5 rounded-[45px]"
-      >
-        <Text className="text-white font-bold text-md">Log Out</Text>
-      </TouchableOpacity>
+    <View className='flex-1'>
+      <UploadEvents />
     </View>
   );
 };
