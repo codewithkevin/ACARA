@@ -65,6 +65,7 @@ const UserInfo = () => {
         <View className="flex justify-center text-center items-center">
           <Text className="text-white mt-[130px] font-bold">No Post</Text>
         </View>
+        
       </View>
     </View>
   );
