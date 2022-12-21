@@ -5,6 +5,7 @@ import { useThemeContext } from "./../Hooks/useThemeContext";
 //Screens Import
 import TabNavigation from "./TabNavigation";
 import Menu from "./Drawer/DrawerNav";
+import EventContent from "./../Components/EventContent";
 
 const Stack = createNativeStackNavigator();
 
@@ -17,6 +18,11 @@ const MyStack = () => {
           options={{ headerShown: false }}
           name="menu"
           component={Menu}
+        />
+        <Stack.Screen
+          options={{ headerShown: false }}
+          name="EventForm"
+          component={EventContent}
         />
       </Stack.Navigator>
     </NavigationContainer>
