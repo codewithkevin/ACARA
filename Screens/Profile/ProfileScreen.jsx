@@ -35,7 +35,6 @@ const ProfileScreen = () => {
           />
         }
         decelerationRate="fast"
-        className="mb-10"
       >
         <View className="p-5">
           <UserProfile />

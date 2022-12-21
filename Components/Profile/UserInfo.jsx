@@ -58,6 +58,14 @@ const UserInfo = () => {
           />
         </View>
       </View>
+
+      <View className="mt-6 mb-96">
+        <Text className="text-white font-semibold text-lg">Events</Text>
+
+        <View className="flex justify-center text-center items-center">
+          <Text className="text-white mt-[130px] font-bold">No Post</Text>
+        </View>
+      </View>
     </View>
   );
 };
