@@ -12,7 +12,7 @@ const Stack = createNativeStackNavigator();
 const MyStack = () => {
   const { theme } = useThemeContext();
   return (
-    <NavigationContainer theme={theme}>
+    <NavigationContainer initialRouteName="EventForm" theme={theme}>
       <Stack.Navigator>
         <Stack.Screen
           options={{ headerShown: false }}

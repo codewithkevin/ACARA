@@ -15,7 +15,7 @@ const Title = (props) => {
           />
         </TouchableOpacity>
         <View className="p-0 mt-3">
-          <Text className="text-[20px] font-md text-white">
+          <Text className="text-[20px] font-bold text-white">
             {props.header}
           </Text>
           <Text className="text-gray-200">{props.text}</Text>
