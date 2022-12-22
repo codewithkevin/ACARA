@@ -125,12 +125,43 @@ const EventContent = () => {
 
           <View className="border-t-2 border-[#3333] mr-4" />
 
-          <View className="mt-5 mb-24">
+          <View className="flex mt-5 mr-2 mb-5">
             <Text className="text-white font-semibold text-lg">
-              Ticks and Payment 
+              Ticks and Payment
             </Text>
 
-            
+            <View className="mb-2">
+              <Text className="ml-3 mt-5 mb-3 text-gray-200">
+                Ticket Price For VIP
+              </Text>
+              <TextInput
+                className="bg-[#1c2039] border  text-white text-sm rounded-[50px] block w-full p-4 placeholder-white"
+                placeholderTextColor="#000"
+                containerStyle={{ marginTop: 10, backgroundColor: "white" }}
+              />
+            </View>
+
+            <View className="mb-2">
+              <Text className="ml-3 mt-5 mb-3 text-gray-200">
+                Ticket Price For Economy
+              </Text>
+              <TextInput
+                className="bg-[#1c2039] border  text-white text-sm rounded-[50px] block w-full p-4 placeholder-white"
+                placeholderTextColor="#000"
+                containerStyle={{ marginTop: 10, backgroundColor: "white" }}
+              />
+            </View>
+
+            <View className="mb-2">
+              <Text className="ml-3 mt-5 mb-3 text-gray-200">
+                Choose Ticket Purchase Deadline
+              </Text>
+              <TextInput
+                className="bg-[#1c2039] border  text-white text-sm rounded-[50px] block w-full p-4 placeholder-white"
+                placeholderTextColor="#000"
+                containerStyle={{ marginTop: 10, backgroundColor: "white" }}
+              />
+            </View>
           </View>
         </ScrollView>
       </SafeAreaView>
