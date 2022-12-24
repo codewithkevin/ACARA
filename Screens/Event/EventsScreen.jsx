@@ -2,6 +2,7 @@ import { View, Text, SafeAreaView } from "react-native";
 import React from "react";
 import Title from "./../../Components/Event/Tittle";
 import UploadEvents from "./../../Components/UploadEvents";
+import EventTabs from "./../../Components/Event/EventTabs";
 
 const EventsScreen = () => {
   return (
@@ -9,6 +10,7 @@ const EventsScreen = () => {
       <UploadEvents />
       <View>
         <Title />
+        <EventTabs />
       </View>
     </SafeAreaView>
   );
