@@ -3,7 +3,7 @@ import { useState } from "react";
 
 const listTab = [
   {
-    status: "Upcoming Events",
+    status: "Upcoming",
   },
   {
     status: "Past Events",
@@ -26,6 +26,7 @@ const EventTabs = () => {
         {listTab.map((e) => (
           <TouchableOpacity onPress={() => setStatusFliter(e.status)}>
             <View
+              key={e.status}
               className={`border-2 p-4 rounded-full border-[#6475ff] ${
                 status === e.status && "bg-[#6475ff]"
               }`}
