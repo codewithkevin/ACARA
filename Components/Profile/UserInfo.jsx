@@ -1,11 +1,12 @@
-import { View, Text, FlatList, Button } from "react-native";
+import { View, Text, FlatList, Button, TouchableOpacity } from "react-native";
 import { GetUserDetails } from "./../../Functions/GetUserDetails";
+import { Entypo } from "@expo/vector-icons";
 
 const UserInfo = () => {
   const { email, interest, details, username, name } = GetUserDetails();
 
   return (
-    <View className="h-full">
+    <View className="h-full w-full">
       <View className="flex justify-center items-center mt-8">
         <Text className="text-white font-medium text-2xl">{username}</Text>
       </View>
@@ -43,14 +44,21 @@ const UserInfo = () => {
       </View>
 
       <View className="mt-10">
-        <Text className="text-white font-semibold text-lg">Interest</Text>
+        <View className="flex flex-row space-x-3">
+          <View>
+            <Text className="text-white font-semibold text-lg">Interest</Text>
+          </View>
+          <TouchableOpacity>
+            <Entypo name="pencil" size={24} color="#6475ff" />
+          </TouchableOpacity>
+        </View>
 
-        <View className="mt-3">
+        <View className="mt-3 ">
           <FlatList
             data={interest}
             numColumns={4}
             renderItem={({ item }) => (
-              <View className="border-2  rounded-full border-[#6475ff] p-4 mx-2 my-2">
+              <View className="border-2  rounded-full border-[#6475ff] p-2 mx-2 my-2">
                 <Text className="text-[#6475ff]">{item}</Text>
               </View>
             )}
@@ -59,13 +67,12 @@ const UserInfo = () => {
         </View>
       </View>
 
-      <View className="mt-6 mb-96">
+      <View className="mt-6 mb-[70]">
         <Text className="text-white font-semibold text-lg">Events</Text>
 
         <View className="flex justify-center text-center items-center">
           <Text className="text-white mt-[130px] font-bold">No Post</Text>
         </View>
-        
       </View>
     </View>
   );
