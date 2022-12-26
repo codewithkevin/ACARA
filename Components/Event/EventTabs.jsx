@@ -1,5 +1,5 @@
 import { View, Text, TouchableOpacity } from "react-native";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const listTab = [
   {
@@ -14,11 +14,15 @@ const listTab = [
 ];
 
 const EventTabs = () => {
-  const [status, setStatus] = useState("Upcoming Events");
+  const [status, setStatus] = useState("Upcoming");
 
   const setStatusFliter = (status) => {
     setStatus(status);
   };
+
+  useEffect(() => {
+    setStatus("Upcoming");
+  }, []);
 
   return (
     <View>
