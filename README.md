@@ -37,5 +37,9 @@ This project is built with:
 ## Onboarding Screen
 https://user-images.githubusercontent.com/86974174/204106092-fc99ed83-4d5f-4da1-bf37-ad228fdf9205.MP4
 
+## PART ONE 
+https://user-images.githubusercontent.com/86974174/210182412-37ec8751-0cd0-4cd0-9e26-e24f9743b574.MP4
+
+
 
 
