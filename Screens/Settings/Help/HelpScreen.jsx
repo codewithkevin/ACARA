@@ -82,7 +82,7 @@ const HelpScreen = () => {
                       ? "bg-[#e73155]"
                       : item.name == "Website"
                       ? "bg-[#ffc42c]"
-                      : "bg-yellow-100"
+                      : "bg-yellow-500"
                   } w-[150] h-[130] rounded-3xl flex justify-center items-center`}
                 >
                   {item.icon}
