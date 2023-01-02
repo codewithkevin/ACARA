@@ -6,6 +6,7 @@ import { useThemeContext } from "./../Hooks/useThemeContext";
 import TabNavigation from "./TabNavigation";
 import Menu from "./Drawer/DrawerNav";
 import EventContent from "./../Components/EventContent";
+import HelpScreen from "./../Screens/Settings/Help/HelpScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -19,11 +20,25 @@ const MyStack = () => {
           name="menu"
           component={Menu}
         />
-        <Stack.Screen
-          options={{ headerShown: false }}
-          name="EventForm"
-          component={EventContent}
-        />
+        <Stack.Group
+          screenOptions={{ headerStyle: { backgroundColor: "papayawhip" } }}
+        >
+          <Stack.Screen
+            options={{ headerShown: false }}
+            name="EventForm"
+            component={EventContent}
+          />
+        </Stack.Group>
+
+        <Stack.Group
+          screenOptions={{ headerStyle: { backgroundColor: "papayawhip" } }}
+        >
+          <Stack.Screen
+            options={{ headerShown: false }}
+            name="Help"
+            component={HelpScreen}
+          />
+        </Stack.Group>
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -121,7 +121,7 @@ const SettingsScreen = () => {
         </View>
       </TouchableOpacity>
 
-      <TouchableOpacity onPress={() => navigation.goBack()}>
+      <TouchableOpacity onPress={() => navigation.navigate("Help")}>
         <View className="mt-4">
           <View className="flex-row space-x-4 items-center p-0 justify-between">
             <View className="flex flex-row items-center space-x-4">
