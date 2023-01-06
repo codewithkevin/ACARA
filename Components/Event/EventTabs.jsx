@@ -28,9 +28,11 @@ const EventTabs = () => {
     <View>
       <View className="flex flex-row justify-between mt-5">
         {listTab.map((e) => (
-          <TouchableOpacity onPress={() => setStatusFliter(e.status)}>
+          <TouchableOpacity
+            key={e.status}
+            onPress={() => setStatusFliter(e.status)}
+          >
             <View
-              key={e.status}
               className={`border-2 p-4 rounded-full border-[#6475ff] ${
                 status === e.status && "bg-[#6475ff]"
               }`}

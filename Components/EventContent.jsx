@@ -10,6 +10,20 @@ import {
 import Title from "./Title/Title";
 import { AntDesign } from "@expo/vector-icons";
 
+const AboutEventTextInput = (props) => {
+  return (
+    <TextInput
+      {...props}
+      className="bg-[#1c2039] h-48  border  text-white text-sm rounded-lg block w-full p-4 placeholder-white"
+      placeholderTextColor="#D7D6D6"
+      containerStyle={{ marginTop: 10, backgroundColor: "white" }}
+      editable
+      maxLength={40}
+      multiline={true}
+    />
+  );
+};
+
 const EventContent = () => {
   return (
     <KeyboardAvoidingView
@@ -115,10 +129,10 @@ const EventContent = () => {
 
             <View className="mb-2">
               <Text className="ml-3 mt-5 mb-3 text-gray-200">About Event</Text>
-              <TextInput
-                className="bg-[#1c2039] h-48  border  text-white text-sm rounded-lg block w-full p-4 placeholder-white"
-                placeholderTextColor="#000"
-                containerStyle={{ marginTop: 10, backgroundColor: "white" }}
+              <AboutEventTextInput
+                multiline
+                numberOfLines={4}
+                style={{ padding: 10 }}
               />
             </View>
           </View>
