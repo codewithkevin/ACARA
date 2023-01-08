@@ -28,6 +28,10 @@ const DatePicker = () => {
     setMode(currentMode);
   };
 
+  const showDate = () => {
+    setShow(!show);
+  };
+
   const showDatepicker = () => {
     showMode("date");
     setShow(!show);
@@ -47,7 +51,7 @@ const DatePicker = () => {
           />
         </View>
         <View className="mb-6">
-          <TouchableOpacity onPress={showDatepicker} activeOpacity={1.8}>
+          <TouchableOpacity onPress={showDate} activeOpacity={1.8}>
             <FontAwesome
               name="calendar"
               size={24}
