@@ -2270,6 +2270,13 @@
     "prompts" "^2.4.0"
     "semver" "^6.3.0"
 
+"@react-native-community/datetimepicker@6.5.2":
+  "integrity" "sha512-9K3zhIH1zmpIGSG3GJTWLIoAx+sR4kJ1wqpGKMwWJ5IYXBsFxMdvGw023t0pz2CQStlnNbbNhnZY/HMYFBCsCg=="
+  "resolved" "https://registry.npmjs.org/@react-native-community/datetimepicker/-/datetimepicker-6.5.2.tgz"
+  "version" "6.5.2"
+  dependencies:
+    "invariant" "^2.2.4"
+
 "@react-native-community/geolocation@^3.0.4":
   "integrity" "sha512-zzf+DISPwEpMH25tR33hgVuy89emYYTrZQarbCSwFOU6fH9MNxnmsRPmdpuNI9YvnjMtEj5kzDrGyqBhx86n6A=="
   "resolved" "https://registry.npmjs.org/@react-native-community/geolocation/-/geolocation-3.0.4.tgz"
