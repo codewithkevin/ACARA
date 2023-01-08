@@ -9,6 +9,9 @@ import {
 } from "react-native";
 import Title from "./Title/Title";
 import { AntDesign } from "@expo/vector-icons";
+import MultipleSelect from "react-native-multiple-select";
+import { MultipleSelectList } from "react-native-dropdown-select-list";
+import { useState } from "react";
 
 const AboutEventTextInput = (props) => {
   return (
@@ -25,6 +28,18 @@ const AboutEventTextInput = (props) => {
 };
 
 const EventContent = () => {
+  const [selected, setSelected] = useState([]);
+
+  const data = [
+    { key: "1", value: "Mobiles", disabled: false },
+    { key: "2", value: "Appliances" },
+    { key: "3", value: "Cameras" },
+    { key: "4", value: "Computers", disabled: false },
+    { key: "5", value: "Vegetables" },
+    { key: "6", value: "Diary Products" },
+    { key: "7", value: "Drinks" },
+  ];
+
   return (
     <KeyboardAvoidingView
       behavior="position"
@@ -72,53 +87,8 @@ const EventContent = () => {
             </Text>
 
             <View className="mb-2">
-              <Text className="ml-3 mt-5 mb-3 text-gray-200">Event Name</Text>
-              <TextInput
-                className="bg-[#1c2039] border  text-white text-sm rounded-[50px] block w-full p-4 placeholder-white"
-                placeholderTextColor="#000"
-                containerStyle={{ marginTop: 10, backgroundColor: "white" }}
-              />
-            </View>
-
-            <View className="mb-2">
-              <Text className="ml-3 mt-5 mb-3 text-gray-200">Event Types</Text>
-              <TextInput
-                className="bg-[#1c2039] border  text-white text-sm rounded-[50px] block w-full p-4 placeholder-white"
-                placeholderTextColor="#000"
-                containerStyle={{ marginTop: 10, backgroundColor: "white" }}
-              />
-            </View>
-
-            <View className="mb-2">
-              <Text className="ml-3 mt-5 mb-3 text-gray-200">Select Date</Text>
-              <TextInput
-                className="bg-[#1c2039] border  text-white text-sm rounded-[50px] block w-full p-4 placeholder-white"
-                placeholderTextColor="#000"
-                containerStyle={{ marginTop: 10, backgroundColor: "white" }}
-              />
-            </View>
-
-            <View className="mb-2">
-              <Text className="ml-3 mt-5 mb-3 text-gray-200">Select Hours</Text>
-              <TextInput
-                className="bg-[#1c2039] border  text-white text-sm rounded-[50px] block w-full p-4 placeholder-white"
-                placeholderTextColor="#000"
-                containerStyle={{ marginTop: 10, backgroundColor: "white" }}
-              />
-            </View>
-
-            <View className="mb-2">
-              <Text className="ml-3 mt-5 mb-3 text-gray-200">Add Location</Text>
-              <TextInput
-                className="bg-[#1c2039] border  text-white text-sm rounded-[50px] block w-full p-4 placeholder-white"
-                placeholderTextColor="#000"
-                containerStyle={{ marginTop: 10, backgroundColor: "white" }}
-              />
-            </View>
-
-            <View className="mb-2">
               <Text className="ml-3 mt-5 mb-3 text-gray-200">
-                Add Location Details
+                Event Name<Text className="text-red-600">*</Text>
               </Text>
               <TextInput
                 className="bg-[#1c2039] border  text-white text-sm rounded-[50px] block w-full p-4 placeholder-white"
@@ -128,7 +98,83 @@ const EventContent = () => {
             </View>
 
             <View className="mb-2">
-              <Text className="ml-3 mt-5 mb-3 text-gray-200">About Event</Text>
+              <Text className="ml-3 mt-5 mb-3 text-gray-200">
+                Event Types<Text className="text-red-600">*</Text>
+              </Text>
+              <MultipleSelectList
+                setSelected={(val) => setSelected(val)}
+                data={data}
+                save="value"
+                onSelect={() => alert(selected)}
+                label="Categories"
+                dropdownTextStyles={{ color: "white" }}
+                inputStyles={{ color: "white" }}
+                style={{ color: "white" }}
+                arrowicon={<AntDesign name="down" size={22} color={"white"} />}
+                searchicon={<AntDesign name="search1" size={24} color="white" />}
+                closeicon={<AntDesign name="close" size={24} color="white" />}
+                placeholder="Event Types"
+                boxStyles={{
+                  backgroundColor: "#1c2039",
+                  borderRadius: 50,
+                  borderWidth: 1,
+                  borderColor: "black",
+                  paddingTop: 16,
+                  paddingRight: 16,
+                  paddingBottom: 16,
+                  paddingLeft: 16,
+                }}
+              />
+            </View>
+
+            <View className="mb-2">
+              <Text className="ml-3 mt-5 mb-3 text-gray-200">
+                Select Date<Text className="text-red-600">*</Text>
+              </Text>
+              <TextInput
+                className="bg-[#1c2039] border  text-white text-sm rounded-[50px] block w-full p-4 placeholder-white"
+                placeholderTextColor="#000"
+                containerStyle={{ marginTop: 10, backgroundColor: "white" }}
+              />
+            </View>
+
+            <View className="mb-2">
+              <Text className="ml-3 mt-5 mb-3 text-gray-200">
+                Select Hours<Text className="text-red-600">*</Text>
+              </Text>
+              <TextInput
+                className="bg-[#1c2039] border  text-white text-sm rounded-[50px] block w-full p-4 placeholder-white"
+                placeholderTextColor="#000"
+                containerStyle={{ marginTop: 10, backgroundColor: "white" }}
+              />
+            </View>
+
+            <View className="mb-2">
+              <Text className="ml-3 mt-5 mb-3 text-gray-200">
+                Add Location<Text className="text-red-600">*</Text>
+              </Text>
+              <TextInput
+                className="bg-[#1c2039] border  text-white text-sm rounded-[50px] block w-full p-4 placeholder-white"
+                placeholderTextColor="#000"
+                containerStyle={{ marginTop: 10, backgroundColor: "white" }}
+              />
+            </View>
+
+            <View className="mb-2">
+              <Text className="ml-3 mt-5 mb-3 text-gray-200">
+                Add Location Details<Text className="text-red-600">*</Text>
+              </Text>
+              <TextInput
+                className="bg-[#1c2039] border  text-white text-sm rounded-[50px] block w-full p-4 placeholder-white"
+                placeholderTextColor="#000"
+                containerStyle={{ marginTop: 10, backgroundColor: "white" }}
+              />
+            </View>
+
+            <View className="mb-2">
+              <Text className="ml-3 mt-5 mb-3 text-gray-200">
+                About Event<Text className="text-red-600">*</Text>
+              </Text>
               <AboutEventTextInput
                 multiline
                 numberOfLines={4}
@@ -146,7 +192,7 @@ const EventContent = () => {
 
             <View className="mb-2">
               <Text className="ml-3 mt-5 mb-3 text-gray-200">
-                Ticket Price For VIP
+                Ticket Price For VIP <Text className="text-red-600">*</Text>
               </Text>
               <TextInput
                 className="bg-[#1c2039] border  text-white text-sm rounded-[50px] block w-full p-4 placeholder-white"
@@ -157,7 +203,7 @@ const EventContent = () => {
 
             <View className="mb-2">
               <Text className="ml-3 mt-5 mb-3 text-gray-200">
-                Ticket Price For Economy
+                Ticket Price For Economy <Text className="text-red-600">*</Text>
               </Text>
               <TextInput
                 className="bg-[#1c2039] border  text-white text-sm rounded-[50px] block w-full p-4 placeholder-white"
@@ -168,7 +214,8 @@ const EventContent = () => {
 
             <View className="mb-2">
               <Text className="ml-3 mt-5 mb-3 text-gray-200">
-                Choose Ticket Purchase Deadline
+                Choose Ticket Purchase Deadline{" "}
+                <Text className="text-red-600">*</Text>
               </Text>
               <TextInput
                 className="bg-[#1c2039] border  text-white text-sm rounded-[50px] block w-full p-4 placeholder-white"
